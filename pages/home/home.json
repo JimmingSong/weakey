@@ -1,0 +1,9 @@
+{
+  "window": {
+    "backgroundColor": "#000"
+  },
+  "usingComponents": {
+    "my-project-list": "./myProject/myProject",
+    "tm-project-list": "./teamProject/teamProject"
+  }
+}

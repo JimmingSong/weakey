@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='project-box'>
+    <view class="usermotto">
+      <button bindtap='changeProjectType'>{{projectType}}</button>
+    </view>
+    <view>
+      <button>新建我的项目</button>
+    </view>
+  </view>
+  <view>
+    <my-project-list wx:if="{{typeShow}}" />
+    <tm-project-list wx:if="{{!typeShow}}"/>
+  </view>
+  <view>
+    <form>
+      <label>项目名称:<input /></label>
+    </form>
+  </view>
+</view>

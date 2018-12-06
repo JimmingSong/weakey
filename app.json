@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/mission/mission",
+    "pages/attendance/attendance"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "weakey",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "img/tabIcon/document.png",
+        "selectedIconPath":"img/tabIcon/document_fill.png",
+        "pagePath": "pages/home/home",
+        "text": "项目"
+      },
+      {
+        "iconPath": "img/tabIcon/activity.png",
+        "selectedIconPath": "img/tabIcon/activity_fill.png",
+        "pagePath": "pages/mission/mission",
+        "text": "任务"
+      },
+      {
+        "iconPath": "img/tabIcon/coordinates.png",
+        "selectedIconPath": "img/tabIcon/coordinates_fill.png",
+        "pagePath": "pages/attendance/attendance",
+        "text": "考勤"
+      }
+    ]
+  }
+}

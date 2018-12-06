@@ -1,0 +1,6 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <view wx:for="{{teamProjectList}}">
+    <text>{{item.txt}}</text>
+  </view>
+</view>

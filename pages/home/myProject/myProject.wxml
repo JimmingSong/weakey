@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:for="{{projectList}}">
+    <text>{{item.txt}}</text>
+  </view>
+</view>

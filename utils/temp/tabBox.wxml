@@ -1,0 +1,15 @@
+<wxs module='m1'>
+  module.exports = {
+    project: ['我的项目','团队项目']
+  };
+</wxs>
+<template name='tabBar'>
+  <view class='tab-item' bindtap='modifyTabShow'>
+    <view class='project-list' hidden='{{m1.projectIsShow}}'>
+      <view wx:for='{{m1.project}}' wx:for-index="idx" wx:key='idx'>{{item}}</view>
+    </view>
+  项目
+  </view>
+  <view class='tab-item'>任务</view>
+  <view class='tab-item'>考勤</view>
+</template>

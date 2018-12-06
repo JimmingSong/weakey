@@ -1,0 +1,24 @@
+/**app.wxss**/
+@import "./utils/iconfont/iconfont.wxss";
+.container {
+  padding-top: 15px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #eee
+} 
+.tab-item{
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+}
+.project-list{
+  position: fixed;
+  bottom: 0;
+  left: 4%;
+  padding: 6px;
+  background: #eee;
+  box-shadow: 3px 0 10px 2px #bbb;
+  border-top-right-radius: 6px;
+}
