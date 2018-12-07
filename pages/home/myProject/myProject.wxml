@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view wx:for="{{projectList}}">
+  <view wx:for="{{projectList}}" wx:key-index='index' wx:key='index'>
     <text>{{item.txt}}</text>
   </view>
 </view>

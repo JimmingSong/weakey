@@ -1,0 +1,20 @@
+
+.h-100p{
+  height: 100%;
+}
+
+
+.w-100p{
+  width: 100%;
+}
+
+.overflow-x-h{
+  overflow-x: hidden;
+}
+
+.dis-flex{
+  display: flex;
+}
+.flex-js-center{
+  justify-content: center;
+}

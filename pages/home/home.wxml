@@ -5,16 +5,13 @@
       <button bindtap='changeProjectType'>{{projectType}}</button>
     </view>
     <view>
-      <button>新建我的项目</button>
+      <navigator url='../createProject/createProject'>
+        <button>新建我的项目</button>
+      </navigator>
     </view>
   </view>
-  <view>
-    <my-project-list wx:if="{{typeShow}}" />
-    <tm-project-list wx:if="{{!typeShow}}"/>
-  </view>
-  <view>
-    <form>
-      <label>项目名称:<input /></label>
-    </form>
-  </view>
+  <view class=''>
+      <my-project-list wx:if="{{typeShow}}" />
+      <tm-project-list wx:if="{{!typeShow}}"/>
+    </view>
 </view>

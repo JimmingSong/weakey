@@ -1,11 +1,15 @@
 /**app.wxss**/
 @import "./utils/iconfont/iconfont.wxss";
+@import "./utils/css/common.wxss";
 .container {
   padding-top: 15px;
   min-height: 100vh;
   box-sizing: border-box;
   background: #eee
-} 
+}
+input{
+  background: #fff;
+}
 .tab-item{
   position: relative;
   flex-grow: 1;

@@ -1,6 +1,6 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <view wx:for="{{teamProjectList}}">
+  <view wx:for="{{teamProjectList}}" wx:key-index='index' wx:key='index'>
     <text>{{item.txt}}</text>
   </view>
 </view>

@@ -1,20 +1,21 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/mission/mission",
-    "pages/attendance/attendance"
+    "pages/attendance/attendance",
+    "pages/createProject/createProject"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "weakey",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
         "iconPath": "img/tabIcon/document.png",
-        "selectedIconPath":"img/tabIcon/document_fill.png",
+        "selectedIconPath": "img/tabIcon/document_fill.png",
         "pagePath": "pages/home/home",
         "text": "项目"
       },
