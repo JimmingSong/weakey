@@ -1,8 +1,9 @@
 Component({
   data:{
-    projectList:[{
-      txt:'项目1'
-    },
+    projectList:[
+      {
+        txt:'项目1'
+      },
       {
         txt: '项目2'
       },
@@ -15,5 +16,11 @@ Component({
     ]
   },
   properties: { /* ... */ },
-  methods: { /* ... */ }
+  methods: { /* ... */
+      jumpToDetail(e) {
+        wx.navigateTo({
+          url: '../showDetail/showDetail?modify=1'
+        })
+      }  
+   }
 })

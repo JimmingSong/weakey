@@ -1,8 +1,13 @@
+@import '../../../utils/iconfont/iconfont.wxss';
 .log-list {
   display: flex;
   flex-direction: column;
   padding: 40rpx;
 }
-.log-item {
-  margin: 10rpx;
+.li-item{
+  display: flex;
+  justify-content: space-between;
+  background:#fff;
+  padding:6px 10px;
+  border-bottom: 1px solid #eee;
 }

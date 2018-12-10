@@ -6,7 +6,7 @@
     </view>
     <view>
       <navigator url='../createProject/createProject'>
-        <button>新建我的项目</button>
+        <button>{{createProject}}</button>
       </navigator>
     </view>
   </view>

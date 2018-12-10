@@ -1,10 +1,26 @@
 /* pages/createProject/createProject.wxss */
+.create-play{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  height: 40px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.create-play icon{
+  font-size: 20px;
+}
 .form-box label{
   width: 30%;
   text-align: center;
 }
 .form-view{
-  margin: 5px 0;
+  padding: 3px 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  align-items: center;
 }
 .form-button{
   margin: 10px;
@@ -12,9 +28,14 @@
 .position_box{
   position: relative;
 }
+.position_box input{
+  padding-right: 22px;
+  width: 93%;
+}
 .icon_position{
   position: absolute;
   top: 0;
   right: 0;
   font-size: 25px;
+  z-index: 10;
 }

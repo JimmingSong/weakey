@@ -8,6 +8,7 @@ Page({
     userInfo: {},
     tab_menu: false,
     projectType:'团队项目',
+    createProject:'新建我的项目',
     typeShow:true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     address:'',
@@ -22,11 +23,13 @@ Page({
       this.setData({
         projectType: '个人项目',
         typeShow: false,
+        createProject:'新建团队项目'
       })
     }else{
       this.setData({
         projectType: '团队项目',
         typeShow: true,
+        createProject: '新建我的项目'
       })
     }
   },
@@ -43,4 +46,10 @@ Page({
       hasUserInfo: true
     })
   },
+  /**
+   * 电机项目跳转事件
+   */
+  jumpToDetail(e){
+    console.log(e);
+  }
 })

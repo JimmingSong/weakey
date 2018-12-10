@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/showDetail/showDetail",
+    "pages/createProject/createProject",
     "pages/mission/mission",
-    "pages/attendance/attendance",
-    "pages/createProject/createProject"
+    "pages/attendance/attendance"
   ],
   "window": {
     "backgroundTextStyle": "light",

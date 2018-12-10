@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import '../../../utils/iconfont/iconfont.wxss';
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +19,12 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.li-item{
+  display: flex;
+  justify-content: space-between;
+  background:#fff;
+  padding:6px 10px;
+  border-bottom: 1px solid #eee;
 }
