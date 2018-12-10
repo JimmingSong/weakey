@@ -1,0 +1,43 @@
+<!--pages/createMission/createMission.wxml-->
+<view class='container' style='padding-top:0;'>
+  <form bindsubmit='formSubmit' class='form-box'>
+    <view class='dis-flex form-view'>
+      <label for='projectName'>任务名称:</label>
+      <input class='flex-grow-1' placeholder='请输入项目名称' name='TasktName' id='projectName' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='projectLeader'>工单类型:</label>
+      <input class='flex-grow-1' placeholder='请选择负责人' name='projectLeader' id='projectLeader' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='bussiness'>业主姓名:</label>
+      <input class='flex-grow-1' placeholder='业主联系人姓名' name='businessContact' id='bussiness' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='phone'>联系方式:</label>
+      <input type='number' class='flex-grow-1' placeholder='业主联系电话' name='phone' id='phone' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='projectType'>项目类型:</label>
+      <input class='flex-grow-1' placeholder='请选择项目类型' name='projectCategory' id='projectType' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='status'>项目状态:</label>
+      <input class='flex-grow-1' placeholder='请输入项目地址' name='status' id='status' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='address'>项目地址:</label>
+      <input class='flex-grow-1' placeholder='请输入项目地址' name='address' id='address' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='position'>项目位置:</label>
+      <view class='dis-flex position_box flex-grow-1'>
+        <input name='position' value='{{address}}' id='position' bindtap='openMap' />
+        <icon class='iconfont icon-coordinates_fill icon_position'></icon>
+      </view>
+    </view>
+    <view class='form-button'>
+      <button form-type='submit' type='primary'>提交</button>
+    </view>
+  </form>
+</view>

@@ -4,3 +4,13 @@
   justify-content: space-around;
   margin-bottom: 15px;
 }
+.li-item{
+  display: flex;
+  justify-content: space-between;
+  background:#fff;
+  padding:6px 10px;
+  border-bottom: 1px solid #eee;
+}
+.create-text{
+  color: #00B26A;
+}

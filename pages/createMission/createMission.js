@@ -1,25 +1,11 @@
-// pages/mission/mission.js
+// pages/createMission/createMission.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    missionList:[
-      {
-        taskName:'任务1',
-        task_type:'',
-      },
-      {
-        taskName: '任务2'
-      },
-      {
-        taskName: '任务3'
-      },
-      {
-        taskName: '任务4'
-      },
-    ]
+
   },
 
   /**

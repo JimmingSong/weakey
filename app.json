@@ -4,7 +4,8 @@
     "pages/showDetail/showDetail",
     "pages/createProject/createProject",
     "pages/mission/mission",
-    "pages/attendance/attendance"
+    "pages/attendance/attendance",
+    "pages/createMission/createMission"
   ],
   "window": {
     "backgroundTextStyle": "light",

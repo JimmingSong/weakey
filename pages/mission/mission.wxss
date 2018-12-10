@@ -1,1 +1,8 @@
 /* pages/mission/mission.wxss */
+.li-item{
+  display: flex;
+  justify-content: space-between;
+  background:#fff;
+  padding:6px 10px;
+  border-bottom: 1px solid #eee;
+}

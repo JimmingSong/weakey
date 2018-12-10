@@ -43,8 +43,8 @@
         <icon class='iconfont icon-coordinates_fill icon_position'></icon>
       </view>
     </view>
-    <!-- <view class='form-button'>
-      <button form-type='submit' type='primary'>提交</button>
-    </view> -->
+    <view class='form-button'>
+      <button type='warn'>删除</button>
+    </view>
   </form>
 </view>

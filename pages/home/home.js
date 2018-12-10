@@ -14,6 +14,8 @@ Page({
     address:'',
     latitude:0,//纬度
     longitude:0,//经度
+    array: ['我的项目', '团队项目'],
+    index:0
   },
 
   changeProjectType:function(){
@@ -51,5 +53,35 @@ Page({
    */
   jumpToDetail(e){
     console.log(e);
+  },
+  /**
+   * 选择项目类型事件
+   */
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    var type = this.data.typeShow;
+    if (type) {
+      this.setData({
+        projectType: '个人项目',
+        typeShow: false,
+        index: e.detail.value
+        // createProject: '新建团队项目'
+      })
+    } else {
+      this.setData({
+        projectType: '团队项目',
+        typeShow: true,
+        index: e.detail.value
+        // createProject: '新建我的项目'
+      })
+    }
+  },
+  /**
+   * 新建跳转事件
+   */
+  jumpToCreatePage(){
+    wx.navigateTo({
+      url: '../createProject/createProject?type='+this.data.index,
+    })
   }
 })

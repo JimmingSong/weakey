@@ -1,6 +1,14 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='project-box'>
+  <view class='li-item'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+      {{array[index]}}
+      </view>
+    </picker>
+    <text class='create-text' bindtap='jumpToCreatePage'>新建</text>
+  </view>
+  <!-- <view class='project-box'>
     <view class="usermotto">
       <button bindtap='changeProjectType'>{{projectType}}</button>
     </view>
@@ -9,7 +17,7 @@
         <button>{{createProject}}</button>
       </navigator>
     </view>
-  </view>
+  </view> -->
   <view class=''>
       <my-project-list wx:if="{{typeShow}}" />
       <tm-project-list wx:if="{{!typeShow}}"/>
