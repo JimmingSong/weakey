@@ -1,1 +1,2 @@
 /* pages/createMission/createMission.wxss */
+@import '../createProject/createProject.wxss';

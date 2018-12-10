@@ -2,7 +2,7 @@
 <view class="container">
   <view class='li-item'>
     <text>任务列表</text>
-    <text>新建</text>
+    <text class='create-text' bindtap='jumpToCreateMission'>新建</text>
   </view>
   <view wx:for="{{missionList}}" wx:key-index='index' wx:key='index' class='li-item' bindtap="jumpToDetail">
     <text>{{item.taskName}}</text>

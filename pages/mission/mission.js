@@ -76,5 +76,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 跳转到创建任务页面
+   */
+  jumpToCreateMission(){
+    wx.navigateTo({
+      url: '../createMission/createMission',
+    })
   }
 })

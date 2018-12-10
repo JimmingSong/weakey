@@ -6,3 +6,6 @@
   padding:6px 10px;
   border-bottom: 1px solid #eee;
 }
+.create-text{
+  color: #00B26A;
+}

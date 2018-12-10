@@ -1,5 +1,5 @@
 <!--pages/createMission/createMission.wxml-->
-<view class='container' style='padding-top:0;'>
+<view class='container'>
   <form bindsubmit='formSubmit' class='form-box'>
     <view class='dis-flex form-view'>
       <label for='projectName'>任务名称:</label>
