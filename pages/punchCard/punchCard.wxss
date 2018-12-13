@@ -1,0 +1,23 @@
+/* pages/punchCard/punchCard.wxss */
+.user-info-box{
+  display: flex;
+}
+.user-info{
+  font-size: 16px;
+}
+.user-info-img{
+  width: 50px;
+  height: 50px;
+}
+.off-work-row{
+  
+}
+.off-work-punch-card{
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background: rgb(17, 184, 235);
+  color: #fff;
+  font-size: 25px;
+}

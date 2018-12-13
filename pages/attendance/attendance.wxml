@@ -1,2 +1,12 @@
 <!--pages/attendance/attendance.wxml-->
-<text>pages/attendance/attendance.wxml</text>
+<view class='attendance-text'>智能考勤</view>
+<view class='features-box'>
+  
+  <view class='features-row'>
+  <navigator url='../punchCard/punchCard'>
+      <view class='feature'>
+        <icon class='iconfont icon-coordinates_fill coordinates'></icon>
+      </view>
+    </navigator>
+  </view>
+</view>

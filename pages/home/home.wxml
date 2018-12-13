@@ -1,4 +1,7 @@
 <!--index.wxml-->
+<!-- <view wx:if='userInfo' class='getAuthorize'>
+  <button bindtap='getUserInfo' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo">授权登录</button>
+</view> -->
 <view class="container">
   <view class='li-item'>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">

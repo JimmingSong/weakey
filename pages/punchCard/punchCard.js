@@ -1,40 +1,28 @@
-// pages/attendance/attendance.js
-// pages/mission/mission.js
+// pages/punchCard/punchCard.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    missionList: [
-      {
-        taskName: '任务1',
-        task_type: '',
-      },
-      {
-        taskName: '任务2'
-      },
-      {
-        taskName: '任务3'
-      },
-      {
-        taskName: '任务4'
-      },
-    ]
+    userInfo:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      userInfo:app.globalData.userInfo
+    })
   },
 
   /**

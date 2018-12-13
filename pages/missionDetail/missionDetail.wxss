@@ -1,0 +1,10 @@
+/* pages/missionDetail/missionDetail.wxss */
+@import '../createProject/createProject.wxss';
+.detail-operator{
+  box-sizing: border-box;
+  padding: 5px 15px;
+  text-align: right;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}

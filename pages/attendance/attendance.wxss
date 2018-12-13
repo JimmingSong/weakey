@@ -1,1 +1,25 @@
 /* pages/attendance/attendance.wxss */
+.attendance-text{
+  padding-left: 10px;
+}
+.features-box{
+
+}
+.features-row{
+  display: flex;
+  padding: 15px;
+}
+.feature{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  /* background: radial-gradient(rgb(185, 207, 185),rgb(206, 247, 206)); */
+  background: rgb(17, 184, 235);
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 3px 3px 5px 2px #999;
+}
+.feature icon{
+  font-size: 35px;
+}

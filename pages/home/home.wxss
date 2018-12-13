@@ -1,4 +1,10 @@
 /**index.wxss**/
+.getAuthorize{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 .project-box{
   display: flex;
   justify-content: space-around;

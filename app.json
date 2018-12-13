@@ -5,7 +5,9 @@
     "pages/createProject/createProject",
     "pages/mission/mission",
     "pages/attendance/attendance",
-    "pages/createMission/createMission"
+    "pages/createMission/createMission",
+    "pages/missionDetail/missionDetail",
+    "pages/punchCard/punchCard"
   ],
   "window": {
     "backgroundTextStyle": "light",

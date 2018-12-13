@@ -84,5 +84,13 @@ Page({
     wx.navigateTo({
       url: '../createMission/createMission',
     })
+  },
+  /**
+   * 跳转到详情页
+   */
+  jumpToDetail(){
+    wx.navigateTo({
+      url: '../missionDetail/missionDetail?modify=1'
+    })
   }
 })

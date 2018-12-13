@@ -1,0 +1,15 @@
+<!--pages/punchCard/punchCard.wxml-->
+<view>
+  <view class='user-info-box'>
+    <image src='{{userInfo.avatarUrl}}' class='user-info-img'></image>
+    <view class='user-info'>
+      <view>{{userInfo.nickName}}</view>
+      <view>
+        <text>城市:{{userInfo.province}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='off-work-row'>
+    <view class='off-work-punch-card'></view>
+  </view>
+</view>
