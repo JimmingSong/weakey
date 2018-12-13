@@ -6,8 +6,14 @@
       <view>{{userInfo.nickName}}</view>
       <view>
         <text>城市:{{userInfo.province}}</text>
+        <text>{{currentTime}}</text>
       </view>
     </view>
+  </view>
+  <view>
+    <view>上班时间: {{workTime}}</view>
+    <view>打开时间:{{punchCardTime}}</view>
+    <view>{{address}}</view>
   </view>
   <view class='off-work-row'>
     <view class='off-work-punch-card'></view>

@@ -1,4 +1,5 @@
 // pages/punchCard/punchCard.js
+import { formatTime} from '../../utils/util.js';
 const app = getApp();
 Page({
 
@@ -7,6 +8,10 @@ Page({
    */
   data: {
     userInfo:null,
+    workTime:'9:30',
+    currentTime:'',
+    punchCardTime:'2018年12月30日',
+    address:'上海市',
   },
 
   /**
@@ -20,6 +25,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    let date = new Date();
+    console.log(formatTime(date));
     this.setData({
       userInfo:app.globalData.userInfo
     })
