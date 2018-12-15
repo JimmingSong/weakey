@@ -15,6 +15,11 @@
   width: 50px;
   height: 50px;
 }
+
+.punch-card-time{
+  font-size: 20px;
+}
+
 .off-work-row{
   
 }

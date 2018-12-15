@@ -10,9 +10,9 @@
       </view>
     </view>
   </view>
-  <view>
+  <view class='punch-card-time'>
     <view>上班时间: {{workTime}}</view>
-    <view>打开时间:{{punchCardTime}}</view>
+    <view>打卡时间:{{punchCardTime}}</view>
     <view>{{address}}</view>
   </view>
   <view class='off-work-row'>
