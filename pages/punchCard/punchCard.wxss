@@ -15,20 +15,46 @@
   width: 50px;
   height: 50px;
 }
+.city-box{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+  font-size: 14px;
+}
 
 .punch-card-time{
-  font-size: 20px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+}
+
+.punch-card-time view{
+  font-size: 14px;
 }
 
 .off-work-row{
-  
+  margin-top: 15px;
 }
 .off-work-punch-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
-  background: rgb(17, 184, 235);
+  background: radial-gradient(rgb(17, 184, 235),rgb(15, 131, 167));
   color: #fff;
   font-size: 25px;
+}
+.attend-address-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

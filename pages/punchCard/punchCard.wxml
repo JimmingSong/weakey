@@ -4,7 +4,7 @@
     <image src='{{userInfo.avatarUrl}}' class='user-info-img'></image>
     <view class='user-info'>
       <view>{{userInfo.nickName}}</view>
-      <view>
+      <view class='city-box'>
         <text>城市:{{userInfo.province}}</text>
         <text>{{currentTime}}</text>
       </view>
@@ -13,9 +13,21 @@
   <view class='punch-card-time'>
     <view>上班时间: {{workTime}}</view>
     <view>打卡时间:{{punchCardTime}}</view>
-    <view>{{address}}</view>
+    <view><icon class='iconfont icon-coordinates_fill'></icon>{{address}}</view>
   </view>
+  <view class='pd-l-10 font-size-14'>下班打卡</view>
   <view class='off-work-row'>
-    <view class='off-work-punch-card'></view>
+    <view class='off-work-punch-card'>
+      <text>下班打卡</text>
+      <text class='font-size-14'>{{secondTime}}</text>
+    </view>
+  </view>
+  <view class='attend-address-box'>
+    <icon type='success' size='15'></icon>
+    <text class='font-size-14'>已进入考勤范围{{address}}</text>
+  </view>
+  <view class='attend-address-box'>
+    <icon type='warn' size='15'></icon>
+    <text class='font-size-14'>已进入考勤范围{{address}}</text>
   </view>
 </view>
