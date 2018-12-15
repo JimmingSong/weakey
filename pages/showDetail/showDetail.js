@@ -1,14 +1,55 @@
 // pages/showDetail/showDetail.js
+let simulateData = [{
+  "projectName": "项目一",
+  "projectLeader": "负责人一",
+  "businessContact": "业务",
+  "phone": '18322567893',
+  "projectCategory": "普通项目",
+  "status": "进行中",
+  "address": "上海市虹口区",
+  "position": "上海市虹口区滇池路81号"
+},
+{
+  "projectName": "项目二",
+  "projectLeader": "负责人二",
+  "businessContact": "业务",
+  "phone": '18322567893',
+  "projectCategory": "普通项目",
+  "status": "进行中",
+  "address": "上海市虹口区",
+  "position": "上海市虹口区滇池路81号"
+},
+{
+  "projectName": "项目三",
+  "projectLeader": "负责人三",
+  "businessContact": "业务",
+  "phone": '18322567893',
+  "projectCategory": "普通项目",
+  "status": "进行中",
+  "address": "上海市虹口区",
+  "position": "上海市虹口区滇池路81号"
+}
+]
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    projectData:{
+      projectName:'',
+      projectLeader:'',
+      businessContact:'',
+      phone:'',
+      projectCategory:'',
+      status:'',
+      address:'',
+      position:''
+    },
     address: '',
     longitude: 0,
     latitude: 0,
-    disable: false
+    disable: false,
   },
 
   /**
@@ -16,9 +57,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    let data = Object.assign({}, this.data.projectData, simulateData[options.id]);
+    console.log(data);
+    this.setData({
+      projectData: data
+    })
     if (options.modify === '1') {
       this.setData({
-        disable: true
+        disable: true,
       })
     }
   },
@@ -77,12 +123,10 @@ Page({
   openMap() {
     wx.chooseLocation({
       success: (res) => {
+        let data = Object.assign({},this.data.projectData,{address:res.address,position:res.address,longitude:res.longitude,latitude:res.latitude});
         this.setData({
-          address: res.address + ',' + res.name,
-          longitude: res.longitude,
-          latitude: res.latitude
+          projectData:data
         })
-        console.log(res)
       }
     })
   },

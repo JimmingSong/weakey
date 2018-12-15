@@ -86,7 +86,7 @@ Page({
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     var type = this.data.typeShow;
-    if (type) {
+    if (e.detail.value === '1') {
       this.setData({
         projectType: '个人项目',
         typeShow: false,

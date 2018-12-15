@@ -46,6 +46,7 @@
   background: radial-gradient(rgb(17, 184, 235),rgb(15, 131, 167));
   color: #fff;
   font-size: 25px;
+  box-shadow: 3px 3px 5px 3px #ccc;
 }
 .attend-address-box{
   display: flex;

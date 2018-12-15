@@ -20,3 +20,6 @@
 .create-text{
   color: #00B26A;
 }
+.pick-select{
+  display: flex;
+}

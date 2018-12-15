@@ -10,24 +10,16 @@
       <input class='flex-grow-1' placeholder='请选择负责人' name='projectLeader' id='projectLeader' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='bussiness'>业主姓名:</label>
+      <label for='bussiness'>工单属性:</label>
       <input class='flex-grow-1' placeholder='业主联系人姓名' name='businessContact' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='phone'>联系方式:</label>
+      <label for='phone'>工单创建人:</label>
       <input type='number' class='flex-grow-1' placeholder='业主联系电话' name='phone' id='phone' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectType'>项目类型:</label>
+      <label for='projectType'>工单负责人:</label>
       <input class='flex-grow-1' placeholder='请选择项目类型' name='projectCategory' id='projectType' />
-    </view>
-    <view class='dis-flex form-view'>
-      <label for='status'>项目状态:</label>
-      <input class='flex-grow-1' placeholder='请输入项目地址' name='status' id='status' />
-    </view>
-    <view class='dis-flex form-view'>
-      <label for='address'>项目地址:</label>
-      <input class='flex-grow-1' placeholder='请输入项目地址' name='address' id='address' />
     </view>
     <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>

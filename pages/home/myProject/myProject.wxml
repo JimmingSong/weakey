@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  <view wx:for="{{projectList}}" wx:key-index='index' wx:key='index' class='li-item' bindtap="jumpToDetail">
-    <text>{{item.txt}}</text>
+  <view wx:for="{{projectList}}" wx:key-index='index' wx:key='index' class='li-item' data-id='{{index}}' bindtap="jumpToDetail">
+    <text>{{item.projectName}}</text>
     <icon class='iconfont icon-enter'></icon>
   </view>
 </view>
