@@ -40,7 +40,7 @@ Component({
         wx.navigateTo({
           url: '../showDetail/showDetail?modify=1&id='+id,
         })
-      }  
+      }
    },
    created(){
      console.log('创建了')

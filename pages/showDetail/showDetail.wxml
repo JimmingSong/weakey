@@ -44,7 +44,7 @@
       </view>
     </view>
     <view class='form-button'>
-      <button type='warn'>删除</button>
+      <button type='warn' bindtap='deleteCurData'>删除</button>
     </view>
   </form>
 </view>

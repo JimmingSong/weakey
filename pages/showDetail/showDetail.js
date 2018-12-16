@@ -186,5 +186,11 @@ Page({
         console.log(res)
       }
     })
+  },
+  deleteCurData(){
+    let projectData = {};
+    this.setData({
+      projectData
+    },this.back())
   }
 })

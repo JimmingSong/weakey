@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<!-- <view wx:if='userInfo' class='getAuthorize'>
+<!-- <view wx:if="JSON.stringify(userInfo) == '{}'" class='getAuthorize'>
   <button bindtap='getUserInfo' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo">授权登录</button>
 </view> -->
 <view class="container">

@@ -12,5 +12,13 @@ Component({
       { txt: '团队项目6' },
       { txt: '团队项目7' }
     ]
+  },
+  methods:{
+    jumpToDetail(e){
+      let id = e.currentTarget.dataset.id
+      wx.navigateTo({
+        url: '../showDetail/showDetail?modify=1&id=' + id,
+      })
+    }
   }
 })
