@@ -34,12 +34,6 @@
         "selectedIconPath": "img/tabIcon/coordinates_fill.png",
         "pagePath": "pages/attendance/attendance",
         "text": "考勤"
-      },
-      {
-        "iconPath": "img/tabIcon/coordinates.png",
-        "selectedIconPath": "img/tabIcon/coordinates_fill.png",
-        "pagePath": "pages/attendance/attendance",
-        "text": "联系人"
       }
     ]
   }
