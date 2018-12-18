@@ -7,7 +7,8 @@
     "pages/attendance/attendance",
     "pages/createMission/createMission",
     "pages/missionDetail/missionDetail",
-    "pages/punchCard/punchCard"
+    "pages/punchCard/punchCard",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,6 +35,12 @@
         "selectedIconPath": "img/tabIcon/coordinates_fill.png",
         "pagePath": "pages/attendance/attendance",
         "text": "考勤"
+      },
+      {
+        "iconPath": "img/tabIcon/addressbook.png",
+        "selectedIconPath": "img/tabIcon/addressbook_fill.png",
+        "pagePath": "pages/contact/contact",
+        "text": "联系人"
       }
     ]
   }

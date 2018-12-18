@@ -1,0 +1,30 @@
+/* pages/contact/contact.wxss */
+.contact-input{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.contact-input input{
+  width: 80%;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+.contact-input icon{
+  font-size: 24px;
+}
+.contact-msg{
+  padding: 8px 5px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.contact-msg .contact-name{
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,11 @@
+<!--pages/contact/contact.wxml-->
+<view class='container'>
+  <view class='contact-input'>
+    <input></input>
+    <icon class='iconfont icon-addition'></icon>
+  </view>
+  <view class='contact-msg' wx:for='{{contactList}}' wx:key-index='index' wx:key='index'>
+    <text class='contact-name'>{{item.name}}</text>
+    <text>{{item.phone}}</text>
+  </view>
+</view>
