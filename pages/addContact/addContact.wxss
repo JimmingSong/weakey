@@ -1,0 +1,15 @@
+/* pages/addContact/addContact.wxss */
+.add-contact-view{
+  display: flex;
+  padding: 5px 10px;
+}
+.add-contact-view label{
+  display: inline-block;
+  width: 20%;
+}
+.add-contact-view input{
+  padding: 3px;
+}
+.add-contact-btn{
+  margin-top: 30px;
+}

@@ -1,24 +1,10 @@
-// pages/contact/contact.js
+// pages/addContact/addContact.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    contactList:[
-    {
-      name:'张三',
-      phone:'123456'
-    },
-    {
-      name: '赵李四',
-      phone: '123456'
-    }, 
-    {
-      name: '欧阳张三sssssss',
-      phone: '123456'
-    }
-    ]
 
   },
 
@@ -77,18 +63,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  addContact(){
-    wx.navigateTo({
-      url: '../addContact/addContact',
-    })
-  },
-  deleteContact(e){
-    wx.showModal({
-      title: '确认删除',
-      content: '是否删除此联系人',
-      success: (sta) => {
-        console.log(sta);
-      }
-    })
+  addContactPerson(val){
+    console.log(val);
   }
 })

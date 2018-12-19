@@ -8,7 +8,8 @@
     "pages/createMission/createMission",
     "pages/missionDetail/missionDetail",
     "pages/punchCard/punchCard",
-    "pages/contact/contact"
+    "pages/contact/contact",
+    "pages/addContact/addContact"
   ],
   "window": {
     "backgroundTextStyle": "light",
