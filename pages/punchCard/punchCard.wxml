@@ -1,11 +1,15 @@
 <!--pages/punchCard/punchCard.wxml-->
 <view>
   <view class='user-info-box'>
-    <image src='{{userInfo.avatarUrl}}' class='user-info-img'></image>
+    <open-data type='userAvatarUrl' class='user-info-img'></open-data>
+    <!-- <image src='{{userInfo.avatarUrl}}' class='user-info-img'></image> -->
     <view class='user-info'>
-      <view>{{userInfo.nickName}}</view>
+      <open-data type='userNickName' lang='zh_CN'></open-data>
       <view class='city-box'>
-        <text>城市:{{userInfo.province}}</text>
+        <view>
+          <text>城市:</text>
+          <open-data type='userProvince' lang='zh_CN'></open-data>
+        </view>
         <text>{{currentTime}}</text>
       </view>
     </view>

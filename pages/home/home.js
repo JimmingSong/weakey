@@ -19,7 +19,6 @@ Page({
   },
 
   changeProjectType:function(){
-    console.log('aa');
     var type = this.data.typeShow;
     if (type){
       this.setData({
