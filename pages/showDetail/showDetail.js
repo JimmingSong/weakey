@@ -1,4 +1,5 @@
 // pages/showDetail/showDetail.js
+import T from '../../utils/request.js';
 let simulateData = [{
   "projectName": "项目一",
   "projectLeader": "负责人一",
@@ -57,11 +58,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    let data = Object.assign({}, this.data.projectData, simulateData[options.id]);
-    console.log(data);
-    this.setData({
-      projectData: data
+    T.searchProject({id:options.id}).then(res => {
+      console.log(res);
     })
+    // let data = Object.assign({}, this.data.projectData, simulateData[options.id]);
+    // console.log(data);
+    // this.setData({
+    //   projectData: data
+    // })
     if (options.modify === '1') {
       this.setData({
         disable: true,

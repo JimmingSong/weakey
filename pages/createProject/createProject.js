@@ -1,6 +1,7 @@
 // pages/createProject/createProject.js
 // const QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 // var qqmapsdk;
+import T from '../../utils/request.js'
 Page({
 
   /**
@@ -87,7 +88,6 @@ Page({
           longitude: res.longitude,
           latitude: res.latitude
         })
-        console.log(res)
       }
     })
   },
@@ -119,7 +119,34 @@ Page({
    * 表单提交
    */
   formSubmit(val) {
-    console.log(arguments);
+    let reqData = val.detail.value;
+    console.log(val);
+    if(reqData.projectName === ''){
+      
+    } else if (reqData.projectLeader === '') {
+
+    } else if (reqData.projectCategory === '') {
+
+    } else if (reqData.position === ''){
+
+    } else if (reqData.phone === '') {
+
+    } else if (reqData.businessContact === '') {
+
+    } else if (reqData.status === '') {
+
+    }else{
+      T.addProject(reqData).then(res=>{
+        wx.showModal({
+          title: '创建项目成功',
+          success: (sta) => {
+            wx.navigateBack({
+              
+            })
+          }
+        })
+      })
+    }
   },
   /**
    * 修改状态

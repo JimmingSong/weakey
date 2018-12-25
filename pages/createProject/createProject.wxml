@@ -26,10 +26,6 @@
       <input class='flex-grow-1' placeholder='请输入项目地址' name='status' id='status' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='address'>项目地址:</label>
-      <input class='flex-grow-1' placeholder='请输入项目地址' name='address' id='address' />
-    </view>
-    <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>
       <view class='dis-flex position_box flex-grow-1'>
         <input name='position' value='{{address}}' id='position' bindtap='openMap' />
