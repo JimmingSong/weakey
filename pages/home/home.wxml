@@ -23,7 +23,7 @@
     </view>
   </view> -->
   <view class=''>
-      <my-project-list wx:if="{{typeShow}}" />
-      <tm-project-list wx:if="{{!typeShow}}"/>
+      <my-project-list project-list="{{myProject}}" wx:if="{{typeShow}}" />
+      <tm-project-list wx:else/>
     </view>
 </view>

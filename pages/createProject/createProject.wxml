@@ -11,11 +11,11 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>业主姓名:</label>
-      <input class='flex-grow-1' placeholder='业主联系人姓名' name='businessContact' id='bussiness' />
+      <input class='flex-grow-1' placeholder='业主联系人姓名' name='bussinessContact' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
       <label for='phone'>联系方式:</label>
-      <input type='number' class='flex-grow-1' placeholder='业主联系电话' name='phone' id='phone' />
+      <input type='number' class='flex-grow-1' placeholder='业主联系电话' name='bussinessPhone' id='phone' />
     </view>
     <view class='dis-flex form-view'>
       <label for='projectType'>项目类型:</label>
@@ -28,7 +28,7 @@
     <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>
       <view class='dis-flex position_box flex-grow-1'>
-        <input name='position' value='{{address}}' id='position' bindtap='openMap' />
+        <input name='projectPosition' value='{{address}}' id='position' bindtap='openMap' />
         <icon class='iconfont icon-coordinates_fill icon_position'></icon>
       </view>
     </view>

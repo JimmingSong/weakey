@@ -1,5 +1,5 @@
 //index.js
-
+import T from '../../utils/request.js';
 //获取应用实例
 const app = getApp()
 
@@ -15,7 +15,8 @@ Page({
     latitude:0,//纬度
     longitude:0,//经度
     array: ['我的项目', '团队项目'],
-    index:0
+    index:0,
+    myProject:[]
   },
 
   changeProjectType:function(){
@@ -61,6 +62,18 @@ Page({
         }
       })
     }
+  },
+  onShow:function(){
+    let data = {
+      creatror: 'string'
+    }
+    T.projectSearch(data).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          myProject: res.data
+        })
+      }
+    })
   },
   formSubmit:function(val){
     console.log(val);

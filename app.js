@@ -1,4 +1,5 @@
 //app.js
+import T from './utils/request.js'
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -42,5 +43,8 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  func:{
+    ajax:T
   }
 })

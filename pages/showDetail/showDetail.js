@@ -1,36 +1,5 @@
 // pages/showDetail/showDetail.js
 import T from '../../utils/request.js';
-let simulateData = [{
-  "projectName": "项目一",
-  "projectLeader": "负责人一",
-  "businessContact": "业务",
-  "phone": '18322567893',
-  "projectCategory": "普通项目",
-  "status": "进行中",
-  "address": "上海市虹口区",
-  "position": "上海市虹口区滇池路81号"
-},
-{
-  "projectName": "项目二",
-  "projectLeader": "负责人二",
-  "businessContact": "业务",
-  "phone": '18322567893',
-  "projectCategory": "普通项目",
-  "status": "进行中",
-  "address": "上海市虹口区",
-  "position": "上海市虹口区滇池路81号"
-},
-{
-  "projectName": "项目三",
-  "projectLeader": "负责人三",
-  "businessContact": "业务",
-  "phone": '18322567893',
-  "projectCategory": "普通项目",
-  "status": "进行中",
-  "address": "上海市虹口区",
-  "position": "上海市虹口区滇池路81号"
-}
-]
 Page({
 
   /**
@@ -44,7 +13,7 @@ Page({
       phone:'',
       projectCategory:'',
       status:'',
-      address:'',
+      projectPosition:'',
       position:''
     },
     address: '',
@@ -57,9 +26,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    T.searchProject({id:options.id}).then(res => {
-      console.log(res);
+    let projectId = options.id;
+    T.projectSearch({id:options.id}).then(res => {
+      let projectData = res.data[0];
+      if(res.code === 0){
+        this.setData({
+          projectId,
+          projectData
+        })
+      }
     })
     // let data = Object.assign({}, this.data.projectData, simulateData[options.id]);
     // console.log(data);
@@ -127,7 +102,8 @@ Page({
   openMap() {
     wx.chooseLocation({
       success: (res) => {
-        let data = Object.assign({},this.data.projectData,{address:res.address,position:res.address,longitude:res.longitude,latitude:res.latitude});
+        console.log(this.data.disable);
+        let data = Object.assign({}, this.data.projectData, { projectPosition:res.address,position:res.address,longitude:res.longitude,latitude:res.latitude});
         this.setData({
           projectData:data
         })
@@ -141,6 +117,7 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
+        console.log(this.data.disable);
         qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
@@ -149,8 +126,11 @@ Page({
           coord_type: 1,
           success: (res) => {
             if (res.status === 0) {
+              console.log(this.data.disable);
               this.setData({
-                address: res.result.address
+                projectPosition: res.result.address,
+                latitude: res.latitude,
+                longitude: res.longitude
               })
             }
           }
@@ -162,7 +142,18 @@ Page({
    * 表单提交
    */
   formSubmit(val) {
-    console.log(arguments);
+    let formData = val.detail.value;
+    val.projectPosition = val.projectPosition + '-' + this.data.longitude + '-' + this.data.latitude;
+    wx.showLoading({
+      title: '提交中...',
+    });
+    let data = Object.assign({}, formData, {id:this.data.projectId});
+    T.updateProject(data).then(res => {
+      wx.hideLoading();
+      this.setData({
+        disable: true
+      })
+    })
   },
   /**
    * 修改状态
@@ -170,14 +161,6 @@ Page({
   modifyStatus() {
     this.setData({
       disable: false
-    })
-  },
-  /**
-   * 确定按钮事件
-   */
-  sureStatus(val){
-    this.setData({
-      disable:true
     })
   },
   /**
@@ -192,9 +175,21 @@ Page({
     })
   },
   deleteCurData(){
-    let projectData = {};
-    this.setData({
-      projectData
-    },this.back())
+    wx.showModal({
+      title: '确定要删除这个项目吗?',
+      content: '删除是危险操作,请谨慎操作!',
+      success:(sta) => {
+        if(sta.confirm){
+          T.deleteProject({ id: this.data.projectId }).then(res => {
+            if (res.code === 0) {
+              wx.showToast({
+                title: '删除成功',
+              },this.back())
+              // this.back()
+            }
+          })
+        }
+      }
+    })    
   }
 })

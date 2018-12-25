@@ -107,6 +107,8 @@ Page({
           success: (res) => {
             if (res.status === 0) {
               this.setData({
+                latitude: res.latitude,
+                longitude: res.longitude,
                 address: res.result.address
               })
             }
@@ -127,7 +129,7 @@ Page({
 
     } else if (reqData.projectCategory === '') {
 
-    } else if (reqData.position === ''){
+    } else if (reqData.projectPosition === ''){
 
     } else if (reqData.phone === '') {
 
@@ -136,6 +138,7 @@ Page({
     } else if (reqData.status === '') {
 
     }else{
+      reqData.projectPosition = reqData.projectPosition+'-'+this.data.longitude+'-'+this.data.latitude;
       T.addProject(reqData).then(res=>{
         wx.showModal({
           title: '创建项目成功',

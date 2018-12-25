@@ -5,7 +5,7 @@
       <!-- <icon class='iconfont icon-return' bindtap='back'></icon> -->
       <!-- <button size='mini' bindtap='back'>返回</button> -->
       <button size='mini' wx:if='{{disable}}' bindtap='modifyStatus'>编辑</button>
-      <button size='mini' wx:else bindtap='sureStatus' type='primary' form-type='submit'>确定</button>
+      <button size='mini' wx:else type='primary' form-type='submit'>确定</button>
       <!-- <icon class='iconfont icon-brush_fill' bindtap='modifyStatus'></icon> -->
     </view>
     <view class='dis-flex form-view'>
@@ -18,11 +18,11 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>业主姓名:</label>
-      <input class='flex-grow-1' value='{{projectData.businessContact}}' disabled='{{disable}}' placeholder='业主联系人姓名' name='businessContact' id='bussiness' />
+      <input class='flex-grow-1' value='{{projectData.bussinessContact}}' disabled='{{disable}}' placeholder='业主联系人姓名' name='bussinessContact' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
       <label for='phone'>联系方式:</label>
-      <input type='number' class='flex-grow-1' value='{{projectData.phone}}' disabled='{{disable}}' disabled='{{disable}}' placeholder='业主联系电话' name='phone' id='phone' />
+      <input type='number' class='flex-grow-1' value='{{projectData.bussinessPhone}}'  disabled='{{disable}}' placeholder='业主联系电话' name='bussinessPhone' id='phone' />
     </view>
     <view class='dis-flex form-view'>
       <label for='projectType'>项目类型:</label>
@@ -33,13 +33,9 @@
       <input class='flex-grow-1' value='{{projectData.status}}' disabled='{{disable}}' placeholder='请输入项目地址' name='status' id='status' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='address'>项目地址:</label>
-      <input class='flex-grow-1' value='{{projectData.address}}' disabled='{{disable}}' placeholder='请输入项目地址' name='address' id='address' />
-    </view>
-    <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>
       <view class='dis-flex position_box flex-grow-1'>
-        <input name='position' disabled='{{disable}}' value='{{projectData.position}}' id='position' bindtap='openMap' />
+        <input name='projectPosition' disabled='{{disable}}' value='{{projectData.projectPosition}}' id='position' bindtap='openMap' />
         <icon class='iconfont icon-coordinates_fill icon_position'></icon>
       </view>
     </view>
