@@ -3,23 +3,19 @@
   <form bindsubmit='formSubmit' class='form-box'>
     <view class='dis-flex form-view'>
       <label for='projectName'>任务名称:</label>
-      <input class='flex-grow-1' placeholder='请输入项目名称' name='TasktName' id='projectName' />
+      <input class='flex-grow-1' placeholder='请输入项目名称' name='taskName' id='projectName' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectLeader'>工单类型:</label>
-      <input class='flex-grow-1' placeholder='请选择负责人' name='projectLeader' id='projectLeader' />
+      <label for='projectLeader'>任务类型:</label>
+      <input class='flex-grow-1' placeholder='任务类型' name='taskType' id='projectLeader' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='bussiness'>工单属性:</label>
-      <input class='flex-grow-1' placeholder='业主联系人姓名' name='businessContact' id='bussiness' />
-    </view>
-    <view class='dis-flex form-view'>
-      <label for='phone'>工单创建人:</label>
-      <input type='number' class='flex-grow-1' placeholder='业主联系电话' name='phone' id='phone' />
+      <label for='bussiness'>任务属性:</label>
+      <input class='flex-grow-1' placeholder='任务属性' name='taskProperty' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
       <label for='projectType'>工单负责人:</label>
-      <input class='flex-grow-1' placeholder='请选择项目类型' name='projectCategory' id='projectType' />
+      <input class='flex-grow-1' placeholder='请选择项目类型' name='taskLeader' id='projectType' />
     </view>
     <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>

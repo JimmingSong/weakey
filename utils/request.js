@@ -34,9 +34,28 @@ function deleteProject(data){
 function updateProject(data){
   return ajax('http://cai.natapp1.cc/project/update', data);
 }
+/**
+ * 任务管理
+ */
+function addMission(data){
+  return ajax('http://cai.natapp1.cc/task/addTask',data);
+}
+function deleteMission(data) {
+  return ajax('http://cai.natapp1.cc/task/delTask', data);
+}
+function updateMission(data) {
+  return ajax('http://cai.natapp1.cc/task/updateTask', data);
+}
+function searchMission(data) {
+  return ajax('http://cai.natapp1.cc/task/findTask', data);
+}
 module.exports = {
   projectSearch,
   addProject,
   deleteProject,
-  updateProject
+  updateProject,
+  addMission,
+  deleteMission,
+  updateMission,
+  searchMission
 }
