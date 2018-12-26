@@ -4,7 +4,7 @@
     <text>任务列表</text>
     <text class='create-text' bindtap='jumpToCreateMission'>新建</text>
   </view>
-  <view wx:for="{{missionList}}" wx:key-index='index' wx:key='index' class='li-item' bindtap="jumpToDetail">
+  <view wx:for="{{missionList}}" wx:key-index='index' wx:key='index' data-id='{{item.id}}' class='li-item' bindtap="jumpToDetail">
     <text>{{item.taskName}}</text>
     <icon class='iconfont icon-enter'></icon>
   </view>

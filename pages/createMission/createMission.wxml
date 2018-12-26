@@ -20,7 +20,7 @@
     <view class='dis-flex form-view'>
       <label for='position'>项目位置:</label>
       <view class='dis-flex position_box flex-grow-1'>
-        <input name='position' value='{{address}}' id='position' bindtap='openMap' />
+        <input name='taskPosition' value='{{address}}' id='position' bindtap='openMap' />
         <icon class='iconfont icon-coordinates_fill icon_position'></icon>
       </view>
     </view>

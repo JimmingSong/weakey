@@ -1,11 +1,14 @@
 // pages/createMission/createMission.js
+import T from '../../utils/request.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    address: '',
+    longitude: '',
+    latitude: ''
   },
 
   /**
@@ -63,7 +66,53 @@ Page({
   onShareAppMessage: function () {
 
   },
+  /**
+   * 打开地图获取定位信息
+   */
+  openMap() {
+    wx.chooseLocation({
+      success: (res) => {
+        this.setData({
+          address: res.address + ',' + res.name,
+          longitude: res.longitude,
+          latitude: res.latitude
+        })
+      }
+    })
+  },
   formSubmit(val){
-    console.log(val);
+    let data = val.detail.value;
+    data.createDate = '2018-12-27';
+    // data.creater = 'string';
+    if(data.taskName === ''){
+      wx.showToast({
+        title: '任务名称不能为空',
+        icon:'none'
+      })
+    }else if(data.taskType === ''){
+      wx.showToast({
+        title: '任务类型不能为空',
+        icon: 'none'
+      })
+    } else if (data.taskProperty === '') {
+      wx.showToast({
+        title: '任务属性不能为空',
+        icon: 'none'
+      })
+    } else if (data.taskLeader === '') {
+      wx.showToast({
+        title: '任务负责人不能为空',
+        icon: 'none'
+      })
+    } else if (data.taskPosition === '') {
+      wx.showToast({
+        title: '任务位置不能为空',
+        icon: 'none'
+      })
+    }else{
+      T.addMission(data).then(res => {
+        console.log(res);
+      })
+    }
   }
 })

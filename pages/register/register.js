@@ -1,12 +1,11 @@
-// pages/mission/mission.js
-import T from '../../utils/request.js';
+// pages/register/register.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    missionList:[]
+
   },
 
   /**
@@ -27,17 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let data = {
-      // "creator": "string",
-    }
-    T.searchMission(data).then(res => {
-      console.log(res);
-      if(res.code === 0){
-        this.setData({
-          missionList:res.data
-        })
-      }
-    })
+
   },
 
   /**
@@ -73,22 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /**
-   * 跳转到创建任务页面
-   */
-  jumpToCreateMission(){
-    wx.navigateTo({
-      url: '../createMission/createMission',
-    })
-  },
-  /**
-   * 跳转到详情页
-   */
-  jumpToDetail(e){
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../missionDetail/missionDetail?modify=1&&id='+id
-    })
   }
 })

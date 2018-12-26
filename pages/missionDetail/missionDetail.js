@@ -1,26 +1,35 @@
 // pages/missionDetail/missionDetail.js
+import T from '../../utils/request.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    formData:{
+      taskName:'',
+      taskType:'',
+      taskProperty:'',
+      taskLeader:'',
+      taskPosition:''
+    },
+    typeList: [{ key: 1, v: '类型1' }, { key: 2, v: '类型2' }, { key: 3, v: '类型3' }, { key: 4, v: '类型3'}],
+    // typeList:['1','2','3'],
+    index: 1,
+    taskId:'',
     address: '',
     longitude: 0,
     latitude: 0,
-    disable: false
+    disable: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    if (options.modify === '1') {
-      this.setData({
-        disable: true
-      })
-    }
+    this.setData({
+      taskId:options.id
+    })
   },
 
   /**
@@ -34,7 +43,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    T.searchMission({ id: this.data.taskId }).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          formData:res.data[0]
+        })
+      }
+    })
   },
 
   /**
@@ -114,7 +129,19 @@ Page({
    * 表单提交
    */
   formSubmit(val) {
-    console.log(arguments);
+    let data = val.detail.value;
+    console.log(data);
+    data.id = this.data.taskId;
+    T.updateMission(data).then(res => {
+      if(res.code === 0){
+        wx.showToast({
+          title: '任务详情修改成功',
+        })
+        this.setData({
+          disable: true
+        })
+      }
+    })
   },
   /**
    * 修改状态
@@ -125,11 +152,13 @@ Page({
     })
   },
   /**
-   * 确定按钮事件
+   * 
    */
-  sureStatus(val) {
+  pickChange(val){
+    console.log(val);
+    let index = val.detail.value;
     this.setData({
-      disable: true
+      index
     })
   },
   /**
@@ -137,9 +166,23 @@ Page({
    */
   back() {
     wx.navigateBack({
-      delta: 1,
-      success: (res) => {
-        console.log(res)
+      delta: 1
+    })
+  },
+  deleteMission(){
+    wx.showModal({
+      title: '删除此任务',
+      content: '删除是危险操作,请谨慎操作',
+      success:(val)=>{
+        if(val.confirm){
+          T.deleteMission({id:this.data.taskId}).then(res => {
+            if(res.code === 0){
+              wx.showToast({
+                title: '删除成功',
+              },this.back())
+            }
+          })
+        }
       }
     })
   }

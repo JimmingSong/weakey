@@ -9,7 +9,8 @@
     "pages/missionDetail/missionDetail",
     "pages/punchCard/punchCard",
     "pages/contact/contact",
-    "pages/addContact/addContact"
+    "pages/addContact/addContact",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
