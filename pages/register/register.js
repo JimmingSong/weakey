@@ -7,7 +7,7 @@ Page({
    */
   data: {
     code:'获取验证码',
-    time:60
+    time:60,
   },
 
   /**
@@ -97,7 +97,9 @@ Page({
       return
     }
     T.sendMessage(phoneNumber).then(res => {
+      console.log(res);
       if(res.code === 0){
+        this.cookie=res.data;
         wx.showToast({
           title: '验证码发送成功',
         });
@@ -113,7 +115,10 @@ Page({
   formSubmit(val){
     console.log(val);
     let data = val.detail.value;
-    T.register(data).then(res => {
+    let head = {
+      'cookie':this.cookie
+    }
+    T.register(data,head).then(res => {
       console.log(res);
     })
   }

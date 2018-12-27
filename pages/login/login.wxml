@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class='title'>用户注册</view>
+  <form bindsubmit='formSubmit'>
+    <view class='row row-name dis-flex'>
+      <label for='name'>用户名</label>
+      <input id='name' name='userName'></input>
+    </view>
+    <view class='row row-pwd dis-flex'>
+      <label for='pwd'>密码</label>
+      <input id='pwd' name='passWord' password></input>
+    </view>
+    <view class='row row-btn dis-flex'>
+      <button bindtap='back'>返回</button>
+      <button type='primary' form-type='submit'>登录</button>
+    </view>
+  </form>
+</view>
+

@@ -1,10 +1,11 @@
-function ajax(url,data,type = 'POST'){
+function ajax(url,data,type = 'POST',head={}){
   let http = 'http://cai.natapp1.cc';
+  console.log(head);
   return new Promise((resolve,reject)=>{
     wx.request({
       url: http+url,
       data: JSON.stringify(data),
-      header: {},
+      header: head,
       method: type,
       success: function (res) {
         if(res.statusCode === 200 && res.data.code === 0){
@@ -55,8 +56,8 @@ function sendMessage(data){
   return ajax('/user/sendMessage',data);
 }
 
-function register(data){
-  return ajax('/user/addUser',data);
+function register(data,head){
+  return ajax('/user/addUser',data,head);
 }
 
 module.exports = {
