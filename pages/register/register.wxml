@@ -1,23 +1,27 @@
 <!--pages/register/register.wxml-->
 <view>
-  <view>用户注册</view>
-  <form>
-    <view>
+  <view class='title'>用户注册</view>
+  <form bindsubmit='formSubmit'>
+    <view class='row row-name dis-flex'>
       <label for='name'>姓名</label>
-      <input id='name' name='name'></input>
+      <input id='name' name='userName'></input>
     </view>
-    <view>
+    <view class='row row-pwd dis-flex'>
       <label for='pwd'>密码</label>
-      <input id='pwd' name='pwd'></input>
+      <input id='pwd' name='passWord' password></input>
     </view>
-    <view>
+    <view class='row row-phone dis-flex'>
       <label for='phone'>手机号</label>
-      <input id='phone' name='phone'></input>
-      <button>获取验证码</button>
+      <input id='phone' name='phone' bindinput='getphone'></input>
     </view>
-    <view>
+    <view class='row row-code dis-flex'>
+      <label for='code'>验证码</label>
+      <input id='code' name='verifyCode'></input>
+      <button class='var-code' name='verifyCode' bindtap='verificationCode'>{{code}}</button>
+    </view>
+    <view class='row row-btn dis-flex'>
       <button>返回</button>
-      <button>立即注册</button>
+      <button type='primary' form-type='submit'>立即注册</button>
     </view>
   </form>
 </view>

@@ -1,7 +1,8 @@
 function ajax(url,data,type = 'POST'){
+  let http = 'http://cai.natapp1.cc';
   return new Promise((resolve,reject)=>{
     wx.request({
-      url: url,
+      url: http+url,
       data: JSON.stringify(data),
       header: {},
       method: type,
@@ -20,35 +21,44 @@ function ajax(url,data,type = 'POST'){
  * 查询我的项目列表
  */
 function projectSearch(data){
-  return ajax('http://cai.natapp1.cc/project/find',data);
+  return ajax('/project/find',data);
 }
 
 function addProject(data){
-  return ajax('http://cai.natapp1.cc/project/add', data);
+  return ajax('/project/add', data);
 }
 
 function deleteProject(data){
-  return ajax('http://cai.natapp1.cc/project/del', data);
+  return ajax('/project/del', data);
 }
 
 function updateProject(data){
-  return ajax('http://cai.natapp1.cc/project/update', data);
+  return ajax('/project/update', data);
 }
 /**
  * 任务管理
  */
 function addMission(data){
-  return ajax('http://cai.natapp1.cc/task/addTask',data);
+  return ajax('/task/addTask',data);
 }
 function deleteMission(data) {
-  return ajax('http://cai.natapp1.cc/task/delTask', data);
+  return ajax('/task/delTask', data);
 }
 function updateMission(data) {
-  return ajax('http://cai.natapp1.cc/task/updateTask', data);
+  return ajax('/task/updateTask', data);
 }
 function searchMission(data) {
-  return ajax('http://cai.natapp1.cc/task/findTask', data);
+  return ajax('/task/findTask', data);
 }
+
+function sendMessage(data){
+  return ajax('/user/sendMessage',data);
+}
+
+function register(data){
+  return ajax('/user/addUser',data);
+}
+
 module.exports = {
   projectSearch,
   addProject,
@@ -57,5 +67,7 @@ module.exports = {
   addMission,
   deleteMission,
   updateMission,
-  searchMission
+  searchMission,
+  sendMessage,
+  register
 }
