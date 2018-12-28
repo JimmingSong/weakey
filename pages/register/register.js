@@ -113,12 +113,24 @@ Page({
     })
   },
   formSubmit(val){
-    console.log(val);
     let data = val.detail.value;
     let head = {
-      'cookie':this.cookie
+      'cookie':`JSESSIONID=${this.cookie};`
     }
+    console.log(head);
     T.register(data,head).then(res => {
+      if(res.code === 0){
+        wx.showModal({
+          title: '注册成功,马上登陆',
+          success: (sta) => {
+            if(sta.confirm){
+              wx.redirectTo({
+                url: '../login/login',
+              })
+            }
+          }
+        })
+      }
       console.log(res);
     })
   }

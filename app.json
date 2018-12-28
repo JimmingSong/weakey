@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/register/register",
     "pages/home/home",
     "pages/showDetail/showDetail",
     "pages/createProject/createProject",
@@ -11,7 +9,9 @@
     "pages/missionDetail/missionDetail",
     "pages/punchCard/punchCard",
     "pages/contact/contact",
-    "pages/addContact/addContact"
+    "pages/addContact/addContact",
+    "pages/login/login",
+    "pages/register/register"    
   ],
   "window": {
     "backgroundTextStyle": "light",

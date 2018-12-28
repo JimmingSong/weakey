@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view>
-  <view class='title'>用户注册</view>
-  <form bindsubmit='formSubmit'>
+  <view class='title'>用户登录</view>
+  <form bindsubmit='login'>
     <view class='row row-name dis-flex'>
       <label for='name'>用户名</label>
       <input id='name' name='userName'></input>

@@ -1,4 +1,5 @@
 // pages/login/login.js
+import T from '../../utils/request.js';
 Page({
 
   /**
@@ -69,6 +70,22 @@ Page({
   back(){
     wx.redirectTo({
       url: '../register/register',
+    })
+  },
+  login(val){
+    let data = val.detail.value;
+    T.login(data).then(res => {
+      if (res.code === 111) {
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }else if(res.code === 0){
+        wx.setStorageSync('sessionId', res.data.sessionId);
+        wx.switchTab({
+          url: '../home/home',
+        })
+      }
     })
   }
 })

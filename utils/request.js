@@ -1,6 +1,9 @@
-function ajax(url,data,type = 'POST',head={}){
+function ajax(url, data, type = 'POST', head = {}){
+  let sessionId = wx.getStorageSync('sessionId');
+  if(!head.cookie){
+    head.cookie = `JSESSIONID=${sessionId};`
+  };
   let http = 'http://cai.natapp1.cc';
-  console.log(head);
   return new Promise((resolve,reject)=>{
     wx.request({
       url: http+url,
@@ -8,7 +11,7 @@ function ajax(url,data,type = 'POST',head={}){
       header: head,
       method: type,
       success: function (res) {
-        if(res.statusCode === 200 && res.data.code === 0){
+        if(res.statusCode === 200){
           resolve(res.data)
         }
       },
@@ -56,8 +59,15 @@ function sendMessage(data){
   return ajax('/user/sendMessage',data);
 }
 
+/**
+ * 用户管理
+ */
 function register(data,head){
-  return ajax('/user/addUser',data,head);
+  return ajax('/user/addUser',data,undefined,head);
+}
+
+function login(data){
+  return ajax('/login',data);
 }
 
 module.exports = {
@@ -70,5 +80,6 @@ module.exports = {
   updateMission,
   searchMission,
   sendMessage,
-  register
+  register,
+  login
 }
