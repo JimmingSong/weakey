@@ -11,7 +11,7 @@
       <input id='pwd' name='passWord' password></input>
     </view>
     <view class='row row-btn dis-flex'>
-      <button bindtap='back'>返回</button>
+      <button bindtap='register'>注册</button>
       <button type='primary' form-type='submit'>登录</button>
     </view>
   </form>

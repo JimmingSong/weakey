@@ -2,11 +2,11 @@
 <form bindsubmit='addContactPerson' class='addContact-box'>
   <view class='add-contact-view'>
     <label for='name'>姓名</label>
-    <input id='name' name='name'></input>
+    <input value='{{formData.contactName}}' id='name' name='contactName'></input>
   </view>
   <view class='add-contact-view'>
     <label for='phone'>手机号</label>
-    <input id='phone' name='phone' type='number'></input>
+    <input value='{{formData.contactPhone}}' id='phone' name='contactPhone' type='number'></input>
   </view>
   <view class='add-contact-btn'>
     <button form-type='submit' type='primary'>保存</button>

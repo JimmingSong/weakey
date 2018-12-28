@@ -12,7 +12,13 @@ function ajax(url, data, type = 'POST', head = {}){
       method: type,
       success: function (res) {
         if(res.statusCode === 200){
-          resolve(res.data)
+          if(res.data.code === 222){
+            wx.redirectTo({
+              url: '../login/login',
+            })
+          }else{
+            resolve(res.data)
+          }
         }
       },
       fail: function (res) {
@@ -70,6 +76,25 @@ function login(data){
   return ajax('/login',data);
 }
 
+/**
+ * 联系人管理
+ */
+function addContact(data){
+  return ajax('/contact/addContact',data)
+}
+
+function findContact(data){
+  return ajax('/contact/findContact',data);
+}
+
+function deleteContact(data){
+  return ajax('/contact/delContact',data)
+}
+
+function updateContact(data){
+  return ajax('/contact/updateContact',data);
+}
+
 module.exports = {
   projectSearch,
   addProject,
@@ -81,5 +106,9 @@ module.exports = {
   searchMission,
   sendMessage,
   register,
-  login
+  login,
+  addContact,
+  findContact,
+  deleteContact,
+  updateContact
 }

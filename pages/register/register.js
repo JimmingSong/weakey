@@ -130,8 +130,17 @@ Page({
             }
           }
         })
+      }else if(res.code === 333){
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
       }
-      console.log(res);
+    })
+  },
+  back(){
+    wx.navigateBack({
+      delta: 1
     })
   }
 })

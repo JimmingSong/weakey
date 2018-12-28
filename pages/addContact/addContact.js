@@ -1,18 +1,34 @@
 // pages/addContact/addContact.js
+import T from '../../utils/request.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:'',
+    formData:{
+      contactName:'',
+      contactPhone:''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(options.id){
+      T.findContact({id:options.id}).then(res => {
+        console.log(res);
+        if(res.code === 0){
+          let formData = res.data[0];
+          this.setData({
+            formData,
+            id: options.id
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -64,6 +80,28 @@ Page({
 
   },
   addContactPerson(val){
-    console.log(val);
+    let data = val.detail.value;
+    if(this.data.id === ''){
+      T.addContact(data).then(res => {
+        if (res.code === 0) {
+          wx.showToast({
+            title: '添加成功',
+          }, wx.navigateBack({
+            delta: 1,
+          }))
+        }
+      })
+    }else{
+      data.id = this.data.id;
+      T.updateContact(data).then(res => {
+        if(res.code === 0){
+          wx.showToast({
+            title: '联系人信息更新成功',
+          },wx.navigateBack({
+
+          }))
+        }
+      })
+    }
   }
 })

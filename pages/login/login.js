@@ -67,8 +67,8 @@ Page({
   /**
    * 
    */
-  back(){
-    wx.redirectTo({
+  register(){
+    wx.navigateTo({
       url: '../register/register',
     })
   },
@@ -76,10 +76,21 @@ Page({
     let data = val.detail.value;
     T.login(data).then(res => {
       if (res.code === 111) {
-        wx.showToast({
-          title: res.msg,
-          icon:'none'
-        })
+        if (res.msg === '该用户名不存在,请重新输入!'){
+          wx.showModal({
+            title: '该用户不存在,马上去注册账号',
+            success:() => {
+              wx.navigateTo({
+                url: '../register/register',
+              })
+            }
+          })
+        }else{
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        }
       }else if(res.code === 0){
         wx.setStorageSync('sessionId', res.data.sessionId);
         wx.switchTab({

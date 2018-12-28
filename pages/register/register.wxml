@@ -20,7 +20,7 @@
       <button class='var-code' name='verifyCode' bindtap='verificationCode'>{{code}}</button>
     </view>
     <view class='row row-btn dis-flex'>
-      <button>返回</button>
+      <button bindtap='back'>返回</button>
       <button type='primary' form-type='submit'>立即注册</button>
     </view>
   </form>

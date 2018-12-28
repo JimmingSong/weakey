@@ -8,3 +8,13 @@
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+.people-row{
+  justify-content: space-between
+}
+.people-row label{
+  width: 35%;
+}
+.people{
+  font-size: 22px;
+  margin-right: 20px;
+}
