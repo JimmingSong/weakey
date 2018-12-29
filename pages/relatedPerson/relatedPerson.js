@@ -31,13 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    T.findTaskPerson({ taskId: this.data.taskId}).then(res => {
-      if(res.code === 0){
-        this.setData({
-          contactList:res.data
-        })
-      }
-    })
+    this.findTaskPerson();
   },
 
   /**
@@ -74,12 +68,39 @@ Page({
   onShareAppMessage: function () {
 
   },
+  findTaskPerson(){
+    T.findTaskPerson({ taskId: this.data.taskId }).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          contactList: res.data
+        })
+      }
+    })
+  },
   addContact(){
     wx.navigateTo({
       url: '../addTaskPerson/addTaskPerson?taskId='+this.data.taskId,
     })
   },
-  delTaskPerson(){
-    
+  delTaskPerson(val){
+    wx.showModal({
+      title: '将此人移除该任务',
+      content: '将此人移除该任务列表',
+      success:(sta)=>{
+        if(sta.confirm){
+          let data = {
+            taskId:this.data.taskId,
+            id: val.currentTarget.dataset.id
+          }
+          T.delTaskPerson(data).then(res => {
+            if(res.code === 0){
+              wx.showToast({
+                title: '移除成功',
+              }, this.findTaskPerson())
+            }
+          })
+        }
+      }
+    })
   }
 })

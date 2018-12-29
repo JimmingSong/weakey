@@ -103,6 +103,10 @@ function findTaskPerson(data){
 function addTaskPerson(data){
   return ajax('/taskEmployee/add',data);
 }
+function delTaskPerson(data){
+  return ajax('/taskEmployee/del',data);
+}
+
 module.exports = {
   projectSearch,
   addProject,
@@ -120,5 +124,6 @@ module.exports = {
   deleteContact,
   updateContact,
   findTaskPerson,
-  addTaskPerson
+  addTaskPerson,
+  delTaskPerson
 }
