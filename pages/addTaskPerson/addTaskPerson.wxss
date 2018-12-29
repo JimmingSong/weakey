@@ -1,0 +1,2 @@
+/* pages/addTaskPerson/addTaskPerson.wxss */
+@import '../contact/contact.wxss';

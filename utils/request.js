@@ -94,7 +94,15 @@ function deleteContact(data){
 function updateContact(data){
   return ajax('/contact/updateContact',data);
 }
-
+/**
+ * 任务相关人员管理
+ */
+function findTaskPerson(data){
+  return ajax('/taskEmployee/find',data)
+}
+function addTaskPerson(data){
+  return ajax('/taskEmployee/add',data);
+}
 module.exports = {
   projectSearch,
   addProject,
@@ -110,5 +118,7 @@ module.exports = {
   addContact,
   findContact,
   deleteContact,
-  updateContact
+  updateContact,
+  findTaskPerson,
+  addTaskPerson
 }

@@ -11,7 +11,9 @@
     "pages/contact/contact",
     "pages/addContact/addContact",
     "pages/login/login",
-    "pages/register/register"    
+    "pages/register/register",
+    "pages/relatedPerson/relatedPerson",
+    "pages/addTaskPerson/addTaskPerson"
   ],
   "window": {
     "backgroundTextStyle": "light",

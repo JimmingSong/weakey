@@ -185,5 +185,10 @@ Page({
         }
       }
     })
+  },
+  jumpToList(e){
+    wx.navigateTo({
+      url: '../relatedPerson/relatedPerson?id='+e.currentTarget.dataset.id,
+    })
   }
 })

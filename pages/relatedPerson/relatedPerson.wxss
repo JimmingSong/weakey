@@ -1,0 +1,2 @@
+/* pages/relatedPerson/relatedPerson.wxss */
+@import '../contact/contact.wxss';

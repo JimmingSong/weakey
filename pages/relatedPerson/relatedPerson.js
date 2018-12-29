@@ -1,20 +1,23 @@
-// pages/login/login.js
+// pages/relatedPerson/relatedPerson.js
 import T from '../../utils/request.js';
-const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    contactList:[],
+    taskId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    this.setData({
+      taskId:options.id
+    })
   },
 
   /**
@@ -28,7 +31,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    T.findTaskPerson({ taskId: this.data.taskId}).then(res => {
+      if(res.code === 0){
+        this.setData({
+          contactList:res.data
+        })
+      }
+    })
   },
 
   /**
@@ -65,43 +74,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  /**
-   * 
-   */
-  register(){
+  addContact(){
     wx.navigateTo({
-      url: '../register/register',
+      url: '../addTaskPerson/addTaskPerson?taskId='+this.data.taskId,
     })
   },
-  login(val){
-    let data = val.detail.value;
-    T.login(data).then(res => {
-      if (res.code === 111) {
-        if (res.msg === '该用户名不存在,请重新输入!'){
-          wx.showModal({
-            title: '该用户不存在,马上去注册账号',
-            success:() => {
-              wx.navigateTo({
-                url: '../register/register',
-              })
-            }
-          })
-        }else{
-          wx.showToast({
-            title: res.msg,
-            icon: 'none'
-          })
-        }
-      }else if(res.code === 0){
-        app.getUserMessage();
-        wx.setStorageSync('sessionId', res.data.sessionId);
-        wx.switchTab({
-          url: '../home/home',
-        })
-      }
-    })
-  },
-  getPhone(val){
-    console.log(val);
+  delTaskPerson(){
+    
   }
 })

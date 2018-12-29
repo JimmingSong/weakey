@@ -81,27 +81,30 @@ Page({
   },
   addContactPerson(val){
     let data = val.detail.value;
-    if(this.data.id === ''){
-      T.addContact(data).then(res => {
-        if (res.code === 0) {
-          wx.showToast({
-            title: '添加成功',
-          }, wx.navigateBack({
-            delta: 1,
-          }))
-        }
-      })
-    }else{
-      data.id = this.data.id;
-      T.updateContact(data).then(res => {
-        if(res.code === 0){
-          wx.showToast({
-            title: '联系人信息更新成功',
-          },wx.navigateBack({
+    let taskId = this.data.taskId;
+    if(taskId === ''){
+      if (this.data.id === '') {
+        T.addContact(data).then(res => {
+          if (res.code === 0) {
+            wx.showToast({
+              title: '添加成功',
+            }, wx.navigateBack({
+              delta: 1,
+            }))
+          }
+        })
+      } else {
+        data.id = this.data.id;
+        T.updateContact(data).then(res => {
+          if (res.code === 0) {
+            wx.showToast({
+              title: '联系人信息更新成功',
+            }, wx.navigateBack({
 
-          }))
-        }
-      })
+            }))
+          }
+        })
+      }
     }
   }
 })

@@ -16,6 +16,9 @@ App({
         console.log(res);
       }
     })
+    
+  },
+  getUserMessage(){
     // 获取用户信息
     wx.getSetting({
       success: res => {

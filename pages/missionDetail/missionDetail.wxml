@@ -27,9 +27,9 @@
       <label for='phone'>任务负责人</label>
       <input type='number' class='flex-grow-1' value='{{formData.taskLeader}}' disabled='{{disable}}' placeholder='业主联系电话' name='taskLeader' id='phone' />
     </view>
-     <view class='dis-flex form-view people-row'>
+    <view class='dis-flex form-view people-row' data-id='{{formData.id}}' bindtap='jumpToList'>
       <label for='phone'>任务相关人员</label>
-      <text class='iconfont icon-addpeople_fill people'></text>
+      <icon class='iconfont icon-enter people'></icon>
     </view>
     <view class='dis-flex form-view'>
       <label for='position'>项目位置</label>
