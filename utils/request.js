@@ -107,6 +107,21 @@ function delTaskPerson(data){
   return ajax('/taskEmployee/del',data);
 }
 
+/**
+ * 打卡信息
+ */
+function judgeAttendance(data){
+  return ajax('/attendance/judgeAttendance',data);
+}
+
+function getAttendace(data){
+  return ajax('/attendance/findAttendance',data)
+}
+
+function operatorAttendace(data){
+  return ajax('/attendance/operateAttendance',data);
+}
+
 module.exports = {
   projectSearch,
   addProject,
@@ -125,5 +140,8 @@ module.exports = {
   updateContact,
   findTaskPerson,
   addTaskPerson,
-  delTaskPerson
+  delTaskPerson,
+  judgeAttendance,
+  getAttendace,
+  operatorAttendace
 }

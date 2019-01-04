@@ -43,10 +43,24 @@
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  background: radial-gradient(rgb(17, 184, 235),rgb(15, 131, 167));
+  background: radial-gradient(rgb(199, 200, 201),rgb(87, 89, 90));
   color: #fff;
   font-size: 25px;
   box-shadow: 3px 3px 5px 3px #ccc;
+}
+.on-work-punch-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 25px;
+  box-shadow: 3px 3px 5px 3px #ccc;
+  background: radial-gradient(rgb(17, 184, 235),rgb(15, 131, 167));
 }
 .attend-address-box{
   display: flex;

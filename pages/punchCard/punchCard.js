@@ -1,5 +1,6 @@
 // pages/punchCard/punchCard.js
 import { formatTime} from '../../utils/util.js';
+import T from '../../utils/request.js';
 const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 const app = getApp();
 let qqmapsdk;
@@ -16,6 +17,10 @@ Page({
     punchCardTime:'2018年12月30日',
     address:'',
     interval:null,
+    isCan: false,
+    cardText: '不允许打卡',
+    taskId: '',
+    taskName: '',
   },
 
   /**
@@ -25,10 +30,32 @@ Page({
     qqmapsdk = new QQMapWX({
       key: 'RRPBZ-2DOK4-67JUE-XVJNV-K4CGE-PDF6U'
     });
-    console.log(this);
     wx.getLocation({
       // type:'gcj02',
       success: (res) => {
+        T.judgeAttendance({
+          latitude: res.latitude,
+          longitude: res.longitude
+        }).then(res=>{
+          if(res.code === 0){
+            this.setData({
+              taskId: res.data.taskId,
+              taskName: res.data.taskName
+            });
+            if(res.data.flag){
+              this.setData({
+                isCan: res.data.flag,
+                cardText: '打卡'
+              })
+            }else{
+              this.setData({
+                isCan: res.data.flag,
+                cardText: '不允许打卡'
+              })
+            }
+            
+          }
+        });
         qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
@@ -114,5 +141,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 打卡
+   */
+  punchCard(){
+    let data = {
+      taskId: this.data.taskId,
+      taskName: this.data.taskName
+    }
+    T.operatorAttendace(data).then(res => {
+      if(res.code === 0){
+        wx.showToast({
+          title: '打卡成功',
+        })
+        // if(res.data.endTime){
+        //   this.setData({
+        //     isCan: false
+        //   })
+        // }
+      }
+    })
   }
 })
