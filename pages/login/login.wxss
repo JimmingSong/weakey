@@ -1,13 +1,19 @@
 /* pages/login/login.wxss */
+.box{
+  height: 100vh
+}
 .title{
   width: 100%;
-  margin-top: 30px;
+  font-size: 30px;
+  padding-top: 30px;
+  color: #fff;
   text-align: center;
 }
 .row{
+  display: flex;
+  justify-content: center;
   padding: 5px 0 5px 15px;
   align-items: center;
-  border-bottom: 1px solid #eee;
 }
 .row label{
   width:65px;
@@ -15,7 +21,13 @@
   text-align: right;
 }
 .row input{
-  width: 50%
+  width: 70%;
+  height: 30px;
+  background: rgba(45,45,45,.15);
+  border: 1px solid rgba(255,255,255,.15);
+  text-shadow: 0 1px 2px rgba(0,0,0,.1);
+  color: #fff;
+  border-radius: 6px;
 }
 .row-name{
   

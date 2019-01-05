@@ -1,14 +1,12 @@
 <!--pages/login/login.wxml-->
-<view>
+<view class='form-bgc box'>
   <view class='title'>用户登录</view>
   <form bindsubmit='login'>
     <view class='row row-name dis-flex'>
-      <label for='name'>用户名</label>
-      <input id='name' name='userName'></input>
+      <input id='name' placeholder='请输入您的用户名' name='userName'></input>
     </view>
     <view class='row row-pwd dis-flex'>
-      <label for='pwd'>密码</label>
-      <input id='pwd' name='passWord' password></input>
+      <input id='pwd' placeholder='请输入您的用户密码' name='passWord' password></input>
     </view>
     <view class='row row-btn dis-flex'>
       <button bindtap='register'>注册</button>
