@@ -1,5 +1,5 @@
 <!--pages/contact/contact.wxml-->
-<view class='container form-bgc1'>
+<view class='container'>
   <view class='contact-input'>
     <input bindinput='search'></input>
     <icon class='iconfont icon-addition' bindtap='addContact'></icon>

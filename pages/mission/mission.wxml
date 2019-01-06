@@ -1,5 +1,5 @@
 <!--pages/mission/mission.wxml-->
-<view class="container form-bgc1">
+<view class="container">
   <view class='li-item'>
     <text>任务列表</text>
     <text class='create-text' bindtap='jumpToCreateMission'>新建</text>

@@ -1,5 +1,5 @@
 <!--pages/attendance/attendance.wxml-->
-<view class='container form-bgc1'>
+<view class='container'>
   <view class='attendance-text'>智能考勤</view>
   <view class='features-box'>
     
