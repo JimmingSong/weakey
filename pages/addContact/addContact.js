@@ -82,7 +82,9 @@ Page({
   addContactPerson(val){
     let data = val.detail.value;
     let taskId = this.data.taskId;
-    if(taskId === ''){
+    console.log(taskId);
+    if(!taskId){
+      console.log(this.data);
       if (this.data.id === '') {
         T.addContact(data).then(res => {
           if (res.code === 0) {

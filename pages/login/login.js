@@ -80,10 +80,12 @@ Page({
         if (res.msg === '该用户名不存在,请重新输入!'){
           wx.showModal({
             title: '该用户不存在,马上去注册账号',
-            success:() => {
-              wx.navigateTo({
-                url: '../register/register',
-              })
+            success:(sta) => {
+              if(sta.confirm){
+                wx.navigateTo({
+                  url: '../register/register',
+                })
+              }
             }
           })
         }else{
