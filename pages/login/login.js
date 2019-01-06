@@ -95,7 +95,6 @@ Page({
           })
         }
       }else if(res.code === 0){
-        app.getUserMessage();
         wx.setStorageSync('sessionId', res.data.sessionId);
         wx.switchTab({
           url: '../home/home',

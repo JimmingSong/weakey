@@ -6,7 +6,6 @@
       <!-- <button size='mini' bindtap='back'>返回</button> -->
       <button size='mini' wx:if='{{disable}}' bindtap='modifyStatus'>编辑</button>
       <button size='mini' wx:else form-type='submit' type='primary'>确定</button>
-      <!-- <icon class='iconfont icon-brush_fill' bindtap='modifyStatus'></icon> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='projectName'>任务名称</label>
@@ -17,7 +16,6 @@
       <picker range='{{typeList}}' class='input' disabled='{{disable}}' bindchange='pickChange' placeholder-class='color-fff' range-key='v' value='{{index}}' name='taskType' id='projectLeader'>
         <view>{{typeList[index].v}}</view>
       </picker>
-      <!-- <input class='flex-grow-1' value='{{formData.taskType}}' bindfocus='showSel' disabled='{{disable}}' placeholder='请选择负责人' name='taskType' id='projectLeader' /> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>任务属性</label>
@@ -27,7 +25,7 @@
       <label for='phone'>任务负责人</label>
       <input type='number' class='flex-grow-1 input' value='{{formData.taskLeader}}' placeholder-class='color-fff' disabled='{{disable}}' placeholder='业主联系电话' name='taskLeader' id='phone' />
     </view>
-    <view class='dis-flex form-view people-row' data-id='{{formData.id}}' bindtap='jumpToList'>
+    <view class='dis-flex form-view people-row' data-projectId='{{formData.projectId}}' data-id='{{formData.id}}' bindtap='jumpToList'>
       <label for='phone'>相关人员</label>
       <text class='iconfont icon-enter people'></text>
     </view>

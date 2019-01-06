@@ -3,23 +3,44 @@
   <view class='create-title'>新建任务</view>
   <form bindsubmit='formSubmit' class='form-box'>
     <view class='dis-flex form-view'>
-      <label for='projectName'>任务名称:</label>
+      <label for='projectName'>任务名称</label>
       <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请输入项目名称' name='taskName' id='projectName' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectLeader'>任务类型:</label>
-      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='任务类型' name='taskType' id='projectLeader' />
+      <label for='projectLeader'>任务类型</label>
+      <picker range='{{taskTypeList}}' range-key='v' value='{{tpIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='任务类型' name='taskType' id='projectLeader' bindchange='selTp'>
+        <text>{{taskTypeList[tpIndex].v}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
     </view>
     <view class='dis-flex form-view'>
-      <label for='bussiness'>任务属性:</label>
-      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='任务属性' name='taskProperty' id='bussiness' />
+      <label for='bussiness'>任务属性</label>
+      <picker range='{{attributeList}}' range-key='v' value='{{atrIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='任务属性' name='taskProperty' id='bussiness'bindchange='selAtr'>
+        <text>{{attributeList[atrIndex].v}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
+    </view>
+    <view class='dis-flex form-view' wx:if="{{atrIndex === '0'}}">
+      <label for='bussiness'>所属项目</label>
+      <picker range='{{projectList}}' range-key='projectName' value='{{projectIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='项目名称' name='projectId' id='bussiness'bindchange='selAtr'>
+        <text>{{projectList[projectIndex].projectName}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectType'>工单负责人:</label>
-      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请选择项目类型' name='taskLeader' id='projectType' />
+      <label for='projectType'>工单负责人</label>
+      <picker range='{{leaderList}}' range-key='contactName' value='{{leaderIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='请选择项目类型' name='taskLeader' id='projectType'>
+        <text>{{leaderList[leaderIndex].contactName}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
+      <!-- <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请选择项目类型' name='taskLeader' id='projectType' /> -->
     </view>
     <view class='dis-flex form-view'>
-      <label for='position'>项目位置:</label>
+      <label for='distance'>打卡距离</label>
+      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请输入打卡距离' name='taskLeader' type='number' id='distance' />
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='position'>项目位置</label>
       <view class='position_box flex-grow-1 input'>
         <input placeholder-class='color-fff' placeholder='请选择位置' name='taskPosition' class='input' value='{{address}}' id='position' bindtap='openMap' />
         <icon class='iconfont icon-enter icon_position' bindtap='openMap'></icon>

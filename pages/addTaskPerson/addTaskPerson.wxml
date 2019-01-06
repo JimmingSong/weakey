@@ -3,7 +3,7 @@
   <view class='contact-input'>
     <input bindinput='search'></input>
   </view>
-  <view class='contact-msg' data-employeeName='{{item.contactName}}' wx:for='{{contactList}}' wx:key-index='index' wx:key='index' bindtap='addToTask'>
+  <view class='contact-msg' data-employeeId='{{item.contactId}}' data-employeeName='{{item.contactName}}' wx:for='{{contactList}}' wx:key-index='index' wx:key='index' bindtap='addToTask'>
     <text class='contact-name'>{{item.contactName}}</text>
     <text>{{item.contactPhone}}</text>
   </view>

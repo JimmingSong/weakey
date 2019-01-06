@@ -16,7 +16,8 @@ Page({
   onLoad: function (options) {
     console.log(options);
     this.setData({
-      taskId:options.id
+      taskId:options.id,
+      projectId: options.projectId
     })
   },
 
@@ -79,7 +80,7 @@ Page({
   },
   addContact(){
     wx.navigateTo({
-      url: '../addTaskPerson/addTaskPerson?taskId='+this.data.taskId,
+      url: `../addTaskPerson/addTaskPerson?taskId=${this.data.taskId}&projectId=${this.data.projectId}`,
     })
   },
   delTaskPerson(val){

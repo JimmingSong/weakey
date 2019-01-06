@@ -144,4 +144,4 @@ module.exports = {
   judgeAttendance,
   getAttendace,
   operatorAttendace
-}
+  }

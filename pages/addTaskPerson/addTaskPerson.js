@@ -13,9 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     if (options.taskId) {
       this.setData({
-        taskId: options.taskId
+        taskId: options.taskId,
+        projectId: options.projectId
       })
     }
   },
@@ -98,10 +100,11 @@ Page({
     })
   },
   addToTask(val){
-    console.log(val);
     let data = {
       employeeName:val.currentTarget.dataset.employeename,
-      taskId:this.data.taskId
+      employeeId: val.currentTarget.dataset.employeeId,
+      taskId:this.data.taskId,
+      projectId: this.data.projectId
     }
     T.addTaskPerson(data).then(res => {
       if(res.code === 0){

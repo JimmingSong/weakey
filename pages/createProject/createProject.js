@@ -1,7 +1,8 @@
 // pages/createProject/createProject.js
 // const QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 // var qqmapsdk;
-import T from '../../utils/request.js'
+import T from '../../utils/request.js';
+const app = getApp();
 Page({
 
   /**
@@ -13,15 +14,17 @@ Page({
     latitude: 0,
     disable:false,
     projectType:[
-      { key: '1', value: '1' },
-      { key: '2', value: '2' },
+      { key: '0', value: '1' },
+      { key: '1', value: '2' },
     ],
-    tpIndex: 1,
+    tpIndex: '1',
     projectStatus:[
       { key: '1', value: '有效' },
       { key: '0', value: '无效' },
     ],
-    staIndex: 1
+    staIndex: '1',
+    mainLeader: [],
+    leaderIndex: '1'
   },
 
   /**
@@ -33,7 +36,8 @@ Page({
       this.setData({
         disable:true
       })
-    }
+    };
+    this.getMainLeader();
     // qqmapsdk = new QQMapWX({
     //   key: 'RRPBZ-2DOK4-67JUE-XVJNV-K4CGE-PDF6U'
     // })
@@ -132,7 +136,7 @@ Page({
    */
   formSubmit(val) {
     let reqData = val.detail.value;
-    console.log(val);
+    console.log(app);
     if(reqData.projectName === ''){
       
     } else if (reqData.projectLeader === '') {
@@ -149,6 +153,12 @@ Page({
 
     }else{
       reqData.projectPosition = reqData.projectPosition+'-'+this.data.longitude+'-'+this.data.latitude;
+      let tp = reqData.projectCategory;
+      let sta = reqData.status;
+      let leader = reqData.projectLeader;
+      reqData.projectLeader = this.data.mainLeader[leader].contactId;
+      reqData.projectCategory = this.data.projectType[tp].key;
+      reqData.status = this.data.projectStatus[sta].key;
       T.addProject(reqData).then(res=>{
         wx.showModal({
           title: '创建项目成功',
@@ -184,7 +194,21 @@ Page({
   },
   selectTp(e){
     this.setData({
-      staIndex: e.detail.value
+      tpIndex: e.detail.value
+    })
+  },
+  getMainLeader(){
+    T.findContact({}).then(res => {
+      if(res.code === 0){
+        this.setData({
+          mainLeader: res.data
+        })
+      }
+    })
+  },
+  selMainLeader(e){
+    this.setData({
+      leaderIndex: e.detail.value
     })
   }
 })

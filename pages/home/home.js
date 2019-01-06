@@ -64,10 +64,7 @@ Page({
     }
   },
   onShow:function(){
-    let data = {
-      creatror: 'string'
-    }
-    T.projectSearch(data).then(res => {
+    T.projectSearch({}).then(res => {
       if (res.code === 0) {
         this.setData({
           myProject: res.data

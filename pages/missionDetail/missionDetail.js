@@ -11,7 +11,8 @@ Page({
       taskType:'',
       taskProperty:'',
       taskLeader:'',
-      taskPosition:''
+      taskPosition:'',
+      projectId: ''
     },
     typeList: [{ key: 1, v: '类型1' }, { key: 2, v: '类型2' }, { key: 3, v: '类型3' }, { key: 4, v: '类型3'}],
     // typeList:['1','2','3'],
@@ -187,8 +188,11 @@ Page({
     })
   },
   jumpToList(e){
+    console.log(e);
+    let taskId = e.currentTarget.dataset.id;
+    let projectId = e.currentTarget.dataset.projectid;
     wx.navigateTo({
-      url: '../relatedPerson/relatedPerson?id='+e.currentTarget.dataset.id,
+      url: `../relatedPerson/relatedPerson?id=${taskId}&projectId=${projectId}`,
     })
   }
 })

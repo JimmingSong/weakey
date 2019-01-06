@@ -8,14 +8,34 @@ Page({
   data: {
     address: '',
     longitude: '',
-    latitude: ''
+    latitude: '',
+    taskTypeList: [
+      // 1.施工 2.安装 3.整改 4.巡检 5.维护
+      { k: '1', v: '施工' },
+      { k: '2', v: '安装' },
+      { k: '3', v: '整改' },
+      { k: '4', v: '巡检' },
+      { k: '5', v: '维护' }
+    ],
+    tpIndex: '0',
+    attributeList: [
+      // 1.项目工单 2.临时工单
+      { k: '1', v: '项目工单' },
+      { k: '2', v: '临时工单' }
+    ],
+    atrIndex: '0',
+    projectList: [],
+    projectIndex: '0',
+    leaderList: [],
+    leaderIndex: '0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getProjectList();
+    this.getLeaderList()
   },
 
   /**
@@ -110,9 +130,56 @@ Page({
         icon: 'none'
       })
     }else{
+      let tp = data.taskType;
+      let atr = data.taskProperty;
+      let pro = data.projectId;
+      data.taskType = this.data.taskTypeList[tp].k;
+      data.taskProperty = this.data.attributeList[atr].k;
+      data.projectId = this.data.projectList[pro].id;
       T.addMission(data).then(res => {
-        console.log(res);
+        if(res.code === 0){
+          wx.showModal({
+            title: '任务新建成功',
+            content: '',
+            success: (sta) => {
+              if(sta.confirm){
+                wx.navigateBack({
+                  
+                })
+              }
+            }
+          })
+        }
       })
     }
+  },
+  getProjectList(){
+    T.projectSearch({}).then(res => {
+      if(res.code === 0){
+        this.setData({
+          projectList: res.data
+        })
+      }
+    })
+  },
+  getLeaderList(){
+    T.findContact().then(res => {
+      console.log(res);
+    })
+  },
+  selTp(e){
+    this.setData({
+      tpIndex: e.detail.value
+    })
+  },
+  selAtr(e) {
+    this.setData({
+      atrIndex: e.detail.value
+    })
+  },
+  selProject(e) {
+    this.setData({
+      projectIndex: e.detail.value
+    })
   }
 })
