@@ -164,7 +164,11 @@ Page({
   },
   getLeaderList(){
     T.findContact().then(res => {
-      console.log(res);
+      if(res.code === 0){
+        this.setData({
+          leaderList: res.data
+        })
+      }
     })
   },
   selTp(e){

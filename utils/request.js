@@ -83,7 +83,7 @@ function addContact(data){
   return ajax('/contact/addContact',data)
 }
 
-function findContact(data){
+function findContact(data = {}){
   return ajax('/contact/findContact',data);
 }
 
