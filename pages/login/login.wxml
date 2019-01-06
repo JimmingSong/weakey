@@ -3,10 +3,10 @@
   <view class='title'>用户登录</view>
   <form bindsubmit='login'>
     <view class='row row-name dis-flex'>
-      <input id='name' placeholder='请输入您的用户名' name='userName'></input>
+      <input id='name' placeholder-class='placeholder' placeholder='请输入您的用户名' name='userName'></input>
     </view>
     <view class='row row-pwd dis-flex'>
-      <input id='pwd' placeholder='请输入您的用户密码' name='passWord' password></input>
+      <input id='pwd' placeholder-class='placeholder' placeholder='请输入您的用户密码' name='passWord' password></input>
     </view>
     <view class='row row-btn dis-flex'>
       <button bindtap='register'>注册</button>

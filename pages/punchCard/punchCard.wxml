@@ -1,5 +1,5 @@
 <!--pages/punchCard/punchCard.wxml-->
-<view>
+<view class='container punch-box'>
   <view class='user-info-box'>
     <open-data type='userAvatarUrl' class='user-info-img'></open-data>
     <!-- <image src='{{userInfo.avatarUrl}}' class='user-info-img'></image> -->

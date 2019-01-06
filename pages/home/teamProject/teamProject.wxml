@@ -2,6 +2,6 @@
 <view class="container">
   <view wx:for="{{teamProjectList}}" wx:key-index='index' wx:key='index' class='li-item' data-id='{{index}}' bindtap='jumpToDetail'>
     <text>{{item.txt}}</text>
-    <icon class='iconfont icon-enter'></icon>
+    <text class='iconfont icon-enter'></text>
   </view>
 </view>

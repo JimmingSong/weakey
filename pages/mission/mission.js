@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    missionList:[]
+    missionList:[{
+      taskName: '1212',
+      id: 1,
+    }]
   },
 
   /**

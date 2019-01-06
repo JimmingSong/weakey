@@ -11,7 +11,17 @@ Page({
     address: '',
     longitude: 0,
     latitude: 0,
-    disable:false
+    disable:false,
+    projectType:[
+      { key: '1', value: '1' },
+      { key: '2', value: '2' },
+    ],
+    tpIndex: 1,
+    projectStatus:[
+      { key: '1', value: '有效' },
+      { key: '0', value: '无效' },
+    ],
+    staIndex: 1
   },
 
   /**
@@ -165,6 +175,16 @@ Page({
   back(){
     wx.navigateBack({
       
+    })
+  },
+  selectSta(e){
+    this.setData({
+      staIndex: e.detail.value
+    })
+  },
+  selectTp(e){
+    this.setData({
+      staIndex: e.detail.value
     })
   }
 })

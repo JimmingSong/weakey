@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/login/login",
+    "pages/register/register",
     "pages/showDetail/showDetail",
     "pages/createProject/createProject",
     "pages/mission/mission",
@@ -10,8 +12,6 @@
     "pages/punchCard/punchCard",
     "pages/contact/contact",
     "pages/addContact/addContact",
-    "pages/login/login",
-    "pages/register/register",
     "pages/relatedPerson/relatedPerson",
     "pages/addTaskPerson/addTaskPerson"
   ],

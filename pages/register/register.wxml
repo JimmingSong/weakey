@@ -1,5 +1,5 @@
 <!--pages/register/register.wxml-->
-<view>
+<view class='form-bgc'>
   <view class='title'>用户注册</view>
   <form bindsubmit='formSubmit'>
     <view class='row row-name dis-flex'>
@@ -14,7 +14,7 @@
       <label for='phone'>手机号</label>
       <input id='phone' name='phone' bindinput='getphone'></input>
     </view>
-    <view class='row row-code dis-flex'>
+    <view class='row row-code var-code-row dis-flex'>
       <label for='code'>验证码</label>
       <input id='code' name='verifyCode'></input>
       <button class='var-code' name='verifyCode' bindtap='verificationCode'>{{code}}</button>

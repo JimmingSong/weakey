@@ -1,5 +1,5 @@
 <!--pages/missionDetail/missionDetail.wxml-->
-<view class='container' style='padding-top:0;'>
+<view class='container form-bgc1' style='padding-top:0;'>
   <form bindsubmit='formSubmit' class='form-box'>
     <view class='detail-operator'>
       <!-- <icon class='iconfont icon-return' bindtap='back'></icon> -->
@@ -10,35 +10,35 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='projectName'>任务名称</label>
-      <input class='flex-grow-1' value='{{formData.taskName}}' disabled='{{disable}}' placeholder='请输入项目名称' name='taskName' id='projectName' />
+      <input class='flex-grow-1 input' value='{{formData.taskName}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请输入项目名称' name='taskName' id='projectName' />
     </view>
     <view class='dis-flex form-view'>
       <label for='projectLeader'>任务类型</label>
-      <picker range='{{typeList}}' disabled='{{disable}}' bindchange='pickChange' range-key='v' value='{{index}}' name='taskType' id='projectLeader'>
+      <picker range='{{typeList}}' class='input' disabled='{{disable}}' bindchange='pickChange' placeholder-class='color-fff' range-key='v' value='{{index}}' name='taskType' id='projectLeader'>
         <view>{{typeList[index].v}}</view>
       </picker>
       <!-- <input class='flex-grow-1' value='{{formData.taskType}}' bindfocus='showSel' disabled='{{disable}}' placeholder='请选择负责人' name='taskType' id='projectLeader' /> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>任务属性</label>
-      <input class='flex-grow-1' value='{{formData.taskProperty}}' disabled='{{disable}}' placeholder='业主联系人姓名' name='taskProperty' id='bussiness' />
+      <input class='flex-grow-1 input' value='{{formData.taskProperty}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='业主联系人姓名' name='taskProperty' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
       <label for='phone'>任务负责人</label>
-      <input type='number' class='flex-grow-1' value='{{formData.taskLeader}}' disabled='{{disable}}' placeholder='业主联系电话' name='taskLeader' id='phone' />
+      <input type='number' class='flex-grow-1 input' value='{{formData.taskLeader}}' placeholder-class='color-fff' disabled='{{disable}}' placeholder='业主联系电话' name='taskLeader' id='phone' />
     </view>
     <view class='dis-flex form-view people-row' data-id='{{formData.id}}' bindtap='jumpToList'>
-      <label for='phone'>任务相关人员</label>
-      <icon class='iconfont icon-enter people'></icon>
+      <label for='phone'>相关人员</label>
+      <text class='iconfont icon-enter people'></text>
     </view>
     <view class='dis-flex form-view'>
       <label for='position'>项目位置</label>
-      <view class='dis-flex position_box flex-grow-1'>
-        <input name='position' disabled='{{disable}}' value='{{formData.taskPosition}}' id='position' bindtap='openMap' name='taskPosition' />
-        <icon class='iconfont icon-coordinates_fill icon_position'></icon>
+      <view class='dis-flex position_box flex-grow-1 input'>
+        <input class='input' disabled='{{disable}}' value='{{formData.taskPosition}}' placeholder-class='color-fff' placeholder='请选择位置' id='position' bindtap='openMap' name='taskPosition' />
+        <text class='iconfont icon-enter icon_position'></text>
       </view>
     </view>
-    <view class='form-button'>
+    <view class='form-button' ws:if='{{disable}}'>
       <button type='warn' bindtap='deleteMission'>删除</button>
     </view>
   </form>

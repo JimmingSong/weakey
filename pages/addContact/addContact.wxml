@@ -1,14 +1,17 @@
 <!--pages/addContact/addContact.wxml-->
-<form bindsubmit='addContactPerson' class='addContact-box'>
-  <view class='add-contact-view'>
-    <label for='name'>姓名</label>
-    <input value='{{formData.contactName}}' id='name' name='contactName'></input>
-  </view>
-  <view class='add-contact-view'>
-    <label for='phone'>手机号</label>
-    <input value='{{formData.contactPhone}}' id='phone' name='contactPhone' type='number'></input>
-  </view>
-  <view class='add-contact-btn'>
-    <button form-type='submit' type='primary'>保存</button>
-  </view>
-</form>
+<view class='container form-bgc1'>
+  <view class='create-title'>新增用户</view>
+  <form bindsubmit='addContactPerson' class='addContact-box'>
+    <view class='add-contact-view'>
+      <label for='name'>姓名</label>
+      <input class='input' placeholder-class='color-fff' placeholder='请输入用户姓名' value='{{formData.contactName}}' id='name' name='contactName'></input>
+    </view>
+    <view class='add-contact-view'>
+      <label for='phone'>手机号</label>
+      <input class='input flex-grow-1' placeholder-class='color-fff' placeholder='请输入用户手机号' value='{{formData.contactPhone}}' id='phone' name='contactPhone' type='number'></input>
+    </view>
+    <view class='add-contact-btn'>
+      <button form-type='submit' type='primary'>保存</button>
+    </view>
+  </form>
+</view>

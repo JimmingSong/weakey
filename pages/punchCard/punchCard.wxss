@@ -1,4 +1,7 @@
 /* pages/punchCard/punchCard.wxss */
+.punch-box{
+  background: #fff;
+}
 .user-info-box{
   display: flex;
   padding-left: 15px;

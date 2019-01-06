@@ -12,6 +12,7 @@
 .row{
   display: flex;
   justify-content: center;
+  margin: 20px 0;
   padding: 5px 0 5px 15px;
   align-items: center;
 }
@@ -21,11 +22,12 @@
   text-align: right;
 }
 .row input{
-  width: 70%;
-  height: 30px;
+  width: 80%;
+  height: 35px;
   background: rgba(45,45,45,.15);
   border: 1px solid rgba(255,255,255,.15);
   text-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding-left: 15px;
   color: #fff;
   border-radius: 6px;
 }
@@ -36,6 +38,14 @@
   margin-top: 20px;
   border: none;
 }
+.row-btn button{
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+}
 .var-code{
   font-size: 14px;
+}
+.placeholder{
+  color: #fff
 }

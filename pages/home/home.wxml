@@ -2,12 +2,12 @@
 <!-- <view wx:if="JSON.stringify(userInfo) == '{}'" class='getAuthorize'>
   <button bindtap='getUserInfo' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo">授权登录</button>
 </view> -->
-<view class="container">
+<view class="container form-bgc2">
   <view class='li-item'>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
       <view class="picker">
       {{array[index]}}
-        <icon class='iconfont icon-unfold'></icon>
+        <text class='iconfont icon-unfold'></text>
       </view>
     </picker>
     <text class='create-text' bindtap='jumpToCreatePage'>新建</text>
