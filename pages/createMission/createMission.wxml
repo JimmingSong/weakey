@@ -33,7 +33,6 @@
         <text>{{leaderList[leaderIndex].contactName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
-      <!-- <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请选择项目类型' name='taskLeader' id='projectType' /> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='distance'>打卡距离</label>

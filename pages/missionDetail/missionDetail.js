@@ -14,9 +14,22 @@ Page({
       taskPosition:'',
       projectId: ''
     },
-    typeList: [{ key: 1, v: '类型1' }, { key: 2, v: '类型2' }, { key: 3, v: '类型3' }, { key: 4, v: '类型3'}],
-    // typeList:['1','2','3'],
-    index: 1,
+    taskTypeList: [
+      // 1.施工 2.安装 3.整改 4.巡检 5.维护
+      { k: '1', v: '施工' },
+      { k: '2', v: '安装' },
+      { k: '3', v: '整改' },
+      { k: '4', v: '巡检' },
+      { k: '5', v: '维护' }
+    ],
+    tpIndex: '0',
+    attributeList: [
+      // 1.项目工单 2.临时工单
+      { k: '1', v: '项目工单' },
+      { k: '2', v: '临时工单' }
+    ],
+    leaderList: [],
+    atrIndex: '0',
     taskId:'',
     address: '',
     longitude: 0,
@@ -50,7 +63,8 @@ Page({
           formData:res.data[0]
         })
       }
-    })
+    });
+    this.getMainLeader();
   },
 
   /**
@@ -194,5 +208,14 @@ Page({
     wx.navigateTo({
       url: `../relatedPerson/relatedPerson?id=${taskId}&projectId=${projectId}`,
     })
-  }
+  },
+  getMainLeader() {
+    T.findContact({}).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          leaderList: res.data
+        })
+      }
+    })
+  },
 })
