@@ -204,4 +204,12 @@ Page({
       }
     })
   },
+  chagneLeader(e){
+    let leader = this.data.projectData;
+    leader.projectLeader = e.detail.value;
+    
+    this.setData({
+      projectData: leader
+    })
+  }
 })

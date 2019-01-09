@@ -130,7 +130,7 @@ Page({
         icon: 'none'
       })
     }else{
-      data.taskPosition = reqData.taskPosition + '-' + this.data.longitude + '-' + this.data.latitude;
+      data.taskPosition = data.taskPosition + '-' + this.data.longitude + '-' + this.data.latitude;
       let tp = data.taskType;
       let atr = data.taskProperty;
       let pro = data.projectId;
