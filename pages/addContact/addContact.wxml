@@ -1,6 +1,6 @@
 <!--pages/addContact/addContact.wxml-->
 <view class='container form-bgc1'>
-  <view class='create-title'>新增用户</view>
+  <view class='create-title'>新增联系人</view>
   <form bindsubmit='addContactPerson' class='addContact-box'>
     <view class='add-contact-view'>
       <label for='name'>姓名</label>

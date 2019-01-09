@@ -14,7 +14,11 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='projectLeader'>主负责人:</label>
-      <input class='flex-grow-1 input' value='{{projectData.projectLeader}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请选择负责人' name='projectLeader' id='projectLeader' />
+      <picker class='flex-grow-1 input picker' value='{{projectData.projectLeader}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请选择负责人' name='projectLeader' id='projectLeader' range='{{mainLeader}}' range-key='contactName'>
+        <text>{{mainLeader[leaderIndex].contactName}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
+      <!-- <input class='flex-grow-1 input' value='{{projectData.projectLeader}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请选择负责人' name='projectLeader' id='projectLeader' /> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>业主姓名:</label>

@@ -22,7 +22,7 @@
     </view>
     <view class='dis-flex form-view' wx:if="{{atrIndex === '0'}}">
       <label for='bussiness'>所属项目</label>
-      <picker range='{{projectList}}' range-key='projectName' value='{{projectIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='项目名称' name='projectId' id='bussiness'bindchange='selAtr'>
+      <picker range='{{projectList}}' range-key='projectName' value='{{projectIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='项目名称' name='projectId' id='bussiness'bindchange='selProject'>
         <text>{{projectList[projectIndex].projectName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>

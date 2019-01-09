@@ -146,21 +146,23 @@ Page({
    * 打卡
    */
   punchCard(){
-    let data = {
-      taskId: this.data.taskId,
-      taskName: this.data.taskName
-    }
-    T.operatorAttendace(data).then(res => {
-      if(res.code === 0){
-        wx.showToast({
-          title: '打卡成功',
-        })
-        // if(res.data.endTime){
-        //   this.setData({
-        //     isCan: false
-        //   })
-        // }
+    if(this.data.isCan){
+      let data = {
+        taskId: this.data.taskId,
+        taskName: this.data.taskName
       }
-    })
+      T.operatorAttendace(data).then(res => {
+        if (res.code === 0) {
+          wx.showToast({
+            title: '打卡成功',
+          })
+          // if(res.data.endTime){
+          //   this.setData({
+          //     isCan: false
+          //   })
+          // }
+        }
+      })
+    }
   }
 })

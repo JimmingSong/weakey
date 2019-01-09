@@ -20,6 +20,8 @@ Page({
     longitude: 0,
     latitude: 0,
     disable: false,
+    mainLeader: [],
+    leaderIndex: 0
   },
 
   /**
@@ -46,6 +48,7 @@ Page({
         disable: true,
       })
     }
+    this.getMainLeader();
   },
 
   /**
@@ -191,5 +194,14 @@ Page({
         }
       }
     })    
-  }
+  },
+  getMainLeader() {
+    T.findContact({}).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          mainLeader: res.data
+        })
+      }
+    })
+  },
 })
