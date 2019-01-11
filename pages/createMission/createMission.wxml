@@ -15,14 +15,14 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>任务属性</label>
-      <picker range='{{attributeList}}' range-key='v' value='{{atrIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='任务属性' name='taskProperty' id='bussiness'bindchange='selAtr'>
+      <picker range='{{attributeList}}' range-key='v' value='{{atrIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='任务属性' name='taskProperty' id='bussiness' bindchange='selAtr'>
         <text>{{attributeList[atrIndex].v}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
     </view>
     <view class='dis-flex form-view' wx:if="{{atrIndex === '0'}}">
       <label for='bussiness'>所属项目</label>
-      <picker range='{{projectList}}' range-key='projectName' value='{{projectIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='项目名称' name='projectId' id='bussiness'bindchange='selProject'>
+      <picker range='{{projectList}}' range-key='projectName' value='{{projectIndex}}' class='flex-grow-1 input picker' placeholder-class='color-fff' placeholder='项目名称' name='projectId' id='bussiness' bindchange='selProject'>
         <text>{{projectList[projectIndex].projectName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
@@ -36,7 +36,7 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='distance'>打卡距离</label>
-      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请输入打卡距离' name='taskLeader' type='number' id='distance' />
+      <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请输入打卡距离' name='distance' type='number' id='distance' />
     </view>
     <view class='dis-flex form-view'>
       <label for='position'>项目位置</label>

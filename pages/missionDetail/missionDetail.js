@@ -30,6 +30,7 @@ Page({
     ],
     leaderList: [],
     atrIndex: '0',
+    projectList: [],
     taskId:'',
     address: '',
     longitude: 0,
@@ -57,14 +58,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    T.searchMission({ id: this.data.taskId }).then(res => {
-      if (res.code === 0) {
-        this.setData({
-          formData:res.data[0]
-        })
-      }
-    });
     this.getMainLeader();
+    this.getProjectList();
   },
 
   /**
@@ -218,4 +213,49 @@ Page({
       }
     })
   },
+  getProjectList() {
+    T.projectSearch({}).then(res => {
+      if (res.code === 0) {
+        T.searchMission({ id: this.data.taskId }).then(rdata => {
+          if (rdata.code === 0) {
+            let taskData = rdata.data[0];
+            res.data.forEach((item,index) => {
+              if (item.id === parseFloat(taskData.projectId)){
+                taskData.projectIndex = index
+              }
+            });
+            taskData.taskProperty = taskData.taskProperty - 1;
+            this.setData({
+              formData: rdata.data[0]
+            })
+          }
+        });
+        this.setData({
+          projectList: res.data
+        })
+      }
+    })
+  },
+  /**
+   * 显示所属项目
+   */
+  showProjectFrom(id){
+    let index;
+    return 1
+  },
+  selProject(e) {
+    let formData = this.data.formData;
+    formData.projectIndex = e.detail.value;
+    
+    this.setData({
+      formData
+    })
+  },
+  selProperty(e){
+    let formData = this.data.formData;
+    formData.taskProperty = e.detail.value;
+    this.setData({
+      formData
+    })
+  }
 })

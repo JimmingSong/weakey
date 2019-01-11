@@ -136,7 +136,13 @@ Page({
       let pro = data.projectId;
       data.taskType = this.data.taskTypeList[tp].k;
       data.taskProperty = this.data.attributeList[atr].k;
-      data.projectId = this.data.projectList[pro].id;
+      debugger;
+      if (atr === '1'){
+        data.projectId = null;
+      }else{
+        data.projectId = this.data.projectList[pro].id;
+        data.projectName = this.data.projectList[pro].projectName;
+      }
       T.addMission(data).then(res => {
         if(res.code === 0){
           wx.showModal({
