@@ -153,11 +153,9 @@ Page({
 
     }else{
       reqData.projectPosition = reqData.projectPosition+'-'+this.data.longitude+'-'+this.data.latitude;
-      let tp = reqData.projectCategory;
       let sta = reqData.status;
       let leader = reqData.projectLeader;
       reqData.projectLeader = this.data.mainLeader[leader].contactId;
-      reqData.projectCategory = this.data.projectType[tp].key;
       reqData.status = this.data.projectStatus[sta].key;
       T.addProject(reqData).then(res=>{
         wx.showModal({

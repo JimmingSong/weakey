@@ -13,25 +13,28 @@
     </view>
     <view class='dis-flex form-view'>
       <label for='projectLeader'>任务类型</label>
-      <picker range='{{taskTypeList}}' class='input picker' disabled='{{disable}}' bindchange='pickChange' placeholder-class='color-fff' range-key='v' value='{{formData.taskType}}' name='taskType' id='projectLeader'>
+      <picker range='{{taskTypeList}}' class='input picker' disabled='{{disable}}'  placeholder-class='color-fff' range-key='v' value='{{formData.taskType}}' name='taskType' id='projectLeader' data-atr='taskType' bindchange='changeEvent'>
         <text>{{taskTypeList[formData.taskType].v}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>任务属性</label>
-      <picker class='flex-grow-1 input picker' value='{{formData.taskProperty}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='业主联系人姓名' name='taskProperty' id='bussiness' range='{{attributeList}}' range-key='v' bindchange='selProperty'>
+      <picker class='flex-grow-1 input picker' value='{{formData.taskProperty}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='业主联系人姓名' name='taskProperty' id='bussiness' range='{{attributeList}}' range-key='v' data-atr='taskProperty' bindchange='changeEvent'>
         <text>{{attributeList[formData.taskProperty].v}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
     </view>
-    <view class='dis-flex form-view' wx:if="{{formData.taskProperty === '0'}}">
+    <view class='dis-flex form-view' wx:if="{{formData.taskProperty === '0' || formData.taskProperty === 0}}">
       <label for='projectName'>所属项目</label>
-      <input class='flex-grow-1 input' value='{{formData.projectName}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请输入项目名称' name='parojectName' id='projectName' />
+      <picker class='flex-grow-1 input picker' value='{{formData.projectIndex}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请输入项目名称' name='projectName' id='projectName' range='{{projectList}}' range-key='projectName' data-atr='projectIndex' bindchange='changeEvent'>
+        <text>{{projectList[formData.projectIndex].projectName}}</text>
+        <icon class='iconfont icon-enter'></icon>
+      </picker>
     </view>
     <view class='dis-flex form-view'>
       <label for='phone'>任务负责人</label>
-      <picker class='flex-grow-1 input picker' value='{{formData.taskLeader}}' placeholder-class='color-fff' disabled='{{disable}}' placeholder='任务负责人' name='taskLeader' id='phone' range='{{leaderList}}' range-key='contactName'>
+      <picker class='flex-grow-1 input picker' value='{{formData.taskLeader}}' placeholder-class='color-fff' disabled='{{disable}}' placeholder='任务负责人' name='taskLeader' id='phone' range='{{leaderList}}' range-key='contactName' data-atr='taskLeader' bindchange='changeEvent'>
         <text>{{leaderList[formData.taskLeader].contactName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>

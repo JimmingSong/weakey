@@ -135,6 +135,9 @@ Page({
    * 表单提交
    */
   formSubmit(val) {
+    if (this.data.disable){
+      return;
+    }
     let formData = val.detail.value;
     val.projectPosition = val.projectPosition + '-' + this.data.longitude + '-' + this.data.latitude;
     wx.showLoading({

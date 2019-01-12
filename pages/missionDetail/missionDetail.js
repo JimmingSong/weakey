@@ -100,14 +100,20 @@ Page({
  * 打开地图获取定位信息
  */
   openMap() {
+    if(this.data.disable){
+      return;
+    }
     wx.chooseLocation({
       success: (res) => {
+        let address = res.address + ',' + res.name;
+        let formData = this.data.formData;
+        formData.taskPosition = address;
+        debugger;
         this.setData({
-          address: res.address + ',' + res.name,
+          formData,
           longitude: res.longitude,
           latitude: res.latitude
         })
-        console.log(res)
       }
     })
   },
@@ -117,17 +123,19 @@ Page({
   getPositionMsg: function () {
     wx.getLocation({
       type: 'wgs84',
-      success: (res) => {
+      success: (pos) => {
         qqmapsdk.reverseGeocoder({
           location: {
-            latitude: res.latitude,
-            longitude: res.longitude
+            latitude: pos.latitude,
+            longitude: pos.longitude
           },
           coord_type: 1,
           success: (res) => {
             if (res.status === 0) {
+              let formData = this.data.formData;
+              formData.taskPosition = res.result.address + '-' + pos.longitude + '-' + pos.latitude;
               this.setData({
-                address: res.result.address
+                formData
               })
             }
           }
@@ -140,8 +148,17 @@ Page({
    */
   formSubmit(val) {
     let data = val.detail.value;
-    console.log(data);
     data.id = this.data.taskId;
+    let atr = data.taskProperty;
+    if (atr === '1'){
+      data.parojectName = null;
+    }else{
+      let proIndex = data.projectName;
+      data.projectId = this.data.projectList[proIndex].id;
+      data.projectName = this.data.projectList[proIndex].projectName;
+    };
+    data.taskProperty = this.data.attributeList[atr].k;
+    // data.taskPosition = data.taskPosition+'-'+this.data.longitude+'-'+this.data.latitude;
     T.updateMission(data).then(res => {
       if(res.code === 0){
         wx.showToast({
@@ -159,16 +176,6 @@ Page({
   modifyStatus() {
     this.setData({
       disable: false
-    })
-  },
-  /**
-   * 
-   */
-  pickChange(val){
-    console.log(val);
-    let index = val.detail.value;
-    this.setData({
-      index
     })
   },
   /**
@@ -197,7 +204,6 @@ Page({
     })
   },
   jumpToList(e){
-    console.log(e);
     let taskId = e.currentTarget.dataset.id;
     let projectId = e.currentTarget.dataset.projectid;
     wx.navigateTo({
@@ -226,7 +232,7 @@ Page({
             });
             taskData.taskProperty = taskData.taskProperty - 1;
             this.setData({
-              formData: rdata.data[0]
+              formData: taskData
             })
           }
         });
@@ -251,9 +257,10 @@ Page({
       formData
     })
   },
-  selProperty(e){
+  changeEvent(e){
     let formData = this.data.formData;
-    formData.taskProperty = e.detail.value;
+    let atr = e.target.dataset.atr;
+    formData[atr] = e.detail.value;
     this.setData({
       formData
     })

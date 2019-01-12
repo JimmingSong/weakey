@@ -136,7 +136,6 @@ Page({
       let pro = data.projectId;
       data.taskType = this.data.taskTypeList[tp].k;
       data.taskProperty = this.data.attributeList[atr].k;
-      debugger;
       if (atr === '1'){
         data.projectId = null;
       }else{
