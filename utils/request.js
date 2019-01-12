@@ -45,6 +45,10 @@ function deleteProject(data){
 function updateProject(data){
   return ajax('/project/update', data);
 }
+
+function searchTeamProject(data){
+  return ajax('/task/findTeamTask',data)
+}
 /**
  * 任务管理
  */
@@ -123,6 +127,7 @@ function operatorAttendace(data){
 }
 
 module.exports = {
+  searchTeamProject,
   projectSearch,
   addProject,
   deleteProject,
