@@ -9,6 +9,11 @@
           <icon class='iconfont icon-coordinates_fill coordinates'></icon>
         </view>
       </navigator>
+      <navigator class='second-url' url='../attendanceList/attendanceList'>
+        <view class='feature'>
+          <icon class='iconfont icon-createtask_fill coordinates'></icon>
+        </view>
+      </navigator>
     </view>
   </view>
 </view>

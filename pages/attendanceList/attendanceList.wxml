@@ -1,4 +1,11 @@
 <!--pages/attendanceList/attendanceList.wxml-->
 <view class='container'>
-  <view wx:for='{{}}'></view>
+  <view wx:for='{{list}}' wx:key-index='index' wx:key='index' class='row-box'>
+    <view class='task-name'>{{item.taskName}}</view>
+    <view class='detail-box'>
+      <view><text>上班时间：</text>{{item.startTime}}</view>
+      <view><text>下班时间：</text>{{item.endTime}}</view>
+      <view><text>工作描述：</text>{{item.commentz}}</view>
+    </view>
+  </view>
 </view>

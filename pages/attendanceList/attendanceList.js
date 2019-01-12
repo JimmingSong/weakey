@@ -1,4 +1,6 @@
 // pages/attendanceList/attendanceList.js
+import T from '../../utils/request.js';
+import { formatTime } from '../../utils/util.js';
 Page({
 
   /**
@@ -14,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getAttendanceList()
   },
 
   /**
@@ -64,5 +66,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getAttendanceList(){
+    T.getAttendace({}).then(res => {
+      if(res.code === 0){
+        let result = res.data.map(item => {
+          if(item.startTime){
+            item.startTime = formatTime('yyyy-MM-dd hh:mm:ss',new Date(item.startTime));
+          }
+          if(item.endTime){
+            item.endTime = formatTime('yyyy-MM-dd hh:mm:ss', new Date(item.endTime))
+          }
+          return item;
+        })
+        this.setData({
+          list: result
+        })
+      }else{
+        wx.showToast({
+          title: res.msg,
+        })
+      }
+    })
   }
 })

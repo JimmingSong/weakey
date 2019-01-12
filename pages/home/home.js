@@ -95,7 +95,6 @@ Page({
    * 选择项目类型事件
    */
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e);
     let dataIndex = e.currentTarget.dataset.index;
     var type = this.data.typeShow;
     if (dataIndex === '0') {

@@ -192,5 +192,10 @@ Page({
     this.setData({
       projectIndex: e.detail.value
     })
+  },
+  selLeader(e) {
+    this.setData({
+      leaderIndex: e.detail.value
+    })
   }
 })

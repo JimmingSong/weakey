@@ -10,13 +10,17 @@
   display: flex;
   padding: 15px;
 }
+.second-url{
+  margin-left: 20px;
+}
 .feature{
   width: 50px;
   height: 50px;
   text-align: center;
   line-height: 50px;
   /* background: radial-gradient(rgb(185, 207, 185),rgb(206, 247, 206)); */
-  background: rgb(17, 184, 235);
+  /* background: rgb(17, 184, 235); */
+  background: #1AAD19;
   border-radius: 5px;
   color: #fff;
   box-shadow: 3px 3px 5px 2px #999;

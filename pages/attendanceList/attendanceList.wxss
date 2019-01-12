@@ -1,1 +1,15 @@
 /* pages/attendanceList/attendanceList.wxss */
+.row-box{
+  background: #fff;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.task-name{
+  padding: 5px 10px;
+  background: #fff;
+  border-bottom: 1px solid rgb(226, 226, 226);
+}
+.detail-box{
+  padding-top: 15px;
+  padding-left: 40px;
+}
