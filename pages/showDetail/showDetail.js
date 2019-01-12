@@ -16,9 +16,9 @@ Page({
       projectPosition:'',
       position:''
     },
-    projectType: [
-      { key: '0', value: '1' },
-      { key: '1', value: '2' },
+    projectStatus: [
+      { key: '1', value: '有效' },
+      { key: '0', value: '无效' },
     ],
     address: '',
     longitude: 0,
@@ -33,26 +33,12 @@ Page({
    */
   onLoad: function (options) {
     let projectId = options.id;
-    T.projectSearch({id:options.id}).then(res => {
-      let projectData = res.data[0];
-      if(res.code === 0){
-        this.setData({
-          projectId,
-          projectData
-        })
-      }
-    })
-    // let data = Object.assign({}, this.data.projectData, simulateData[options.id]);
-    // console.log(data);
-    // this.setData({
-    //   projectData: data
-    // })
     if (options.modify === '1') {
       this.setData({
         disable: true,
       })
     }
-    this.getMainLeader();
+    this.getMainLeader(projectId);
   },
 
   /**
@@ -199,19 +185,42 @@ Page({
       }
     })    
   },
-  getMainLeader() {
+  /**
+   * 获取联系人列表
+   */
+  getMainLeader(id) {
     T.findContact({}).then(res => {
       if (res.code === 0) {
+        this.getProjectInfo(id,res.data)
         this.setData({
           mainLeader: res.data
         })
       }
     })
   },
+  /**
+   * 获取项目信息
+   */
+  getProjectInfo(id,mainLeader){
+    T.projectSearch({id}).then(res => {
+      let projectData = res.data[0];
+      if (res.code === 0) {
+        mainLeader.forEach((item,index) => {
+          if(projectData.projectLeader === item.ownerId){
+            projectData.projectLeader = index;
+          }
+        })
+        this.setData({
+          projectId:id,
+          projectData
+        })
+      }
+    })
+  },
   chagneLeader(e){
+    let atr = e.target.dataset.atr;
     let leader = this.data.projectData;
-    leader.projectLeader = e.detail.value;
-    
+    leader[atr] = e.detail.value;
     this.setData({
       projectData: leader
     })

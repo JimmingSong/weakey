@@ -1,0 +1,4 @@
+<!--pages/attendanceList/attendanceList.wxml-->
+<view class='container'>
+  <view wx:for='{{}}'></view>
+</view>

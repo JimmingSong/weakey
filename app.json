@@ -13,7 +13,8 @@
     "pages/contact/contact",
     "pages/addContact/addContact",
     "pages/relatedPerson/relatedPerson",
-    "pages/addTaskPerson/addTaskPerson"
+    "pages/addTaskPerson/addTaskPerson",
+    "pages/attendanceList/attendanceList"
   ],
   "window": {
     "backgroundTextStyle": "light",

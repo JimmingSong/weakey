@@ -12,7 +12,6 @@
         <text>{{mainLeader[leaderIndex].contactName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
-      <!-- <input class='flex-grow-1 input' placeholder-class='color-fff' placeholder='请选择负责人' name='projectLeader' id='projectLeader' /> -->
     </view>
     <view class='dis-flex form-view'>
       <label for='bussiness'>业主姓名:</label>
@@ -22,14 +21,13 @@
       <label for='phone'>联系方式:</label>
       <input type='number' class='flex-grow-1 input' placeholder-class='color-fff' placeholder='业主联系电话' name='bussinessPhone' id='phone' />
     </view>
-    <view class='dis-flex form-view'>
+    <!-- <view class='dis-flex form-view'>
       <label for='projectType'>项目类型:</label>
       <picker class='flex-grow-1 input picker' mode='selector' placeholder='请选择项目类型' name='projectCategory' id='projectType' range-key='key' range="{{projectType}}" value='{{tpIndex}}' bindchange='selectTp'>
         <text>{{projectType[tpIndex].value}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
-      <!-- <input class='flex-grow-1 input' placeholder='请选择项目类型' name='projectCategory' id='projectType' /> -->
-    </view>
+    </view> -->
     <view class='dis-flex form-view'>
       <label for='status'>项目状态:</label>
       <picker range='{{projectStatus}}' class='flex-grow-1 input picker' placeholder='请输入项目地址' name='status' id='status' value='{{staIndex}}' range-key='value' bindchange='selectSta'>

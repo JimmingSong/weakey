@@ -93,7 +93,7 @@ Page({
             }, wx.navigateBack({
               delta: 1,
             }))
-          }else if(res.code === 12){
+          }else if(res.code === 15 || res.code === 12){
             wx.showToast({
               title: res.msg,
               icon: 'none'
