@@ -102,7 +102,7 @@ Page({
   addToTask(val){
     let data = {
       employeeName:val.currentTarget.dataset.employeename,
-      employeeId: val.currentTarget.dataset.employeeId,
+      employeeId: val.currentTarget.dataset.employeeid,
       taskId:this.data.taskId,
       projectId: this.data.projectId
     }
@@ -110,6 +110,10 @@ Page({
       if(res.code === 0){
         wx.navigateBack({
           
+        })
+      }else{
+        wx.showToast({
+          title: res.msg
         })
       }
     })

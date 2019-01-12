@@ -1,4 +1,38 @@
 /**index.wxss**/
+.main-tab{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.menu-tab{
+  position:relative;
+  display:block;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  font-size:18px;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.55555556;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  color:#000000;
+  background-color:#F8F8F8;
+}
+.first-tab{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: 1px solid #eee;
+}
+.last-tab{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.active-tab{
+  background: #1AAD19;
+  color: #fff;
+}
 .getAuthorize{
   display: flex;
   justify-content: center;

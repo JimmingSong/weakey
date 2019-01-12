@@ -3,13 +3,18 @@
   <button bindtap='getUserInfo' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo">授权登录</button>
 </view> -->
 <view class="container">
+  <view class='main-tab'>
+    <text class='{{firstTab}}' data-index='0' bindtap='bindPickerChange'>我的项目</text>
+    <text class='{{lastTab}}' data-index='1' bindtap='bindPickerChange'>团队项目</text>
+  </view>
   <view class='li-item'>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
       <view class="picker">
       {{array[index]}}
         <text class='iconfont icon-unfold'></text>
       </view>
-    </picker>
+    </picker> -->
+    <text>{{projectType}}</text>
     <text class='create-text' bindtap='jumpToCreatePage'>新建</text>
   </view>
   <!-- <view class='project-box'>

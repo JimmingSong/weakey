@@ -7,7 +7,7 @@ Page({
   data: {
     userInfo: {},
     tab_menu: false,
-    projectType:'团队项目',
+    projectType:'我的项目',
     createProject:'新建我的项目',
     typeShow:true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -16,7 +16,9 @@ Page({
     longitude:0,//经度
     array: ['我的项目', '团队项目'],
     index:0,
-    myProject:[]
+    myProject:[],
+    firstTab:'menu-tab first-tab active-tab',
+    lastTab: 'menu-tab last-tab'
   },
 
   changeProjectType:function(){
@@ -93,21 +95,26 @@ Page({
    * 选择项目类型事件
    */
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e);
+    let dataIndex = e.currentTarget.dataset.index;
     var type = this.data.typeShow;
-    if (e.detail.value === '1') {
+    if (dataIndex === '0') {
       this.setData({
-        projectType: '个人项目',
-        typeShow: false,
-        index: e.detail.value
-        // createProject: '新建团队项目'
+        projectType: '我的项目',
+        typeShow: true,
+        index: dataIndex,
+        firstTab: 'menu-tab first-tab active-tab',
+        lastTab: 'menu-tab last-tab'
+        // createProject: '新建我的项目'
       })
     } else {
       this.setData({
         projectType: '团队项目',
-        typeShow: true,
-        index: e.detail.value
-        // createProject: '新建我的项目'
+        typeShow: false,
+        index: dataIndex,
+        firstTab: 'menu-tab first-tab',
+        lastTab: 'menu-tab last-tab active-tab'
+        // createProject: '新建团队项目'
       })
     }
   },
@@ -118,5 +125,11 @@ Page({
     wx.navigateTo({
       url: '../createProject/createProject?type='+this.data.index,
     })
+  },
+  /**
+   * tab切换
+   */
+  tabChange(e){
+
   }
 })
