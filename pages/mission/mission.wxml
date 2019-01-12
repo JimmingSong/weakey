@@ -1,5 +1,9 @@
 <!--pages/mission/mission.wxml-->
 <view class="container">
+  <view class='main-tab'>
+    <text class='{{firstTab}}' data-index='0' bindtap='bindPickerChange'>我的任务</text>
+    <text class='{{lastTab}}' data-index='1' bindtap='bindPickerChange'>团队任务</text>
+  </view>
   <view class='li-item'>
     <text>任务列表</text>
     <text class='create-text' bindtap='jumpToCreateMission'>新建</text>

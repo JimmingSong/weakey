@@ -16,6 +16,10 @@ Page({
       projectPosition:'',
       position:''
     },
+    projectType: [
+      { key: '0', value: '1' },
+      { key: '1', value: '2' },
+    ],
     address: '',
     longitude: 0,
     latitude: 0,

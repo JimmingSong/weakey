@@ -105,7 +105,6 @@ Page({
         index: dataIndex,
         firstTab: 'menu-tab first-tab active-tab',
         lastTab: 'menu-tab last-tab'
-        // createProject: '新建我的项目'
       })
     } else {
       this.setData({
@@ -114,7 +113,6 @@ Page({
         index: dataIndex,
         firstTab: 'menu-tab first-tab',
         lastTab: 'menu-tab last-tab active-tab'
-        // createProject: '新建团队项目'
       })
     }
   },

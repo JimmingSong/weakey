@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    missionList:[]
+    missionList:[],
+    firstTab: 'menu-tab first-tab active-tab',
+    lastTab: 'menu-tab last-tab'
   },
 
   /**
@@ -90,5 +92,26 @@ Page({
     wx.navigateTo({
       url: '../missionDetail/missionDetail?modify=1&&id='+id
     })
+  },
+  bindPickerChange(e){
+    let dataIndex = e.currentTarget.dataset.index;
+    var type = this.data.typeShow;
+    if (dataIndex === '0') {
+      this.setData({
+        projectType: '我的任务',
+        typeShow: true,
+        index: dataIndex,
+        firstTab: 'menu-tab first-tab active-tab',
+        lastTab: 'menu-tab last-tab'
+      })
+    } else {
+      this.setData({
+        projectType: '团队任务',
+        typeShow: false,
+        index: dataIndex,
+        firstTab: 'menu-tab first-tab',
+        lastTab: 'menu-tab last-tab active-tab'
+      })
+    }
   }
 })
