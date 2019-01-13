@@ -126,7 +126,7 @@ function delTaskPerson(data){
  * 查询当前人在团队任务中的打卡记录
  */
 function searchTaskAttend(data){
-  return ajax('/task/findTaskEmployeeAttend',data)
+  return ajax('/task/findTaskAttend',data)
 }
 
 /**
@@ -169,4 +169,5 @@ module.exports = {
   operatorAttendace,
   searchAttendacce,
   searchTaskAttend,
+  searchTmTask,
   }

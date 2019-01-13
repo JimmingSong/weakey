@@ -5,3 +5,7 @@
   padding: 10px 10px 5px;
   text-align: right;
 }
+.task-list{
+  margin-left: 30%;
+  color: #fff;
+}

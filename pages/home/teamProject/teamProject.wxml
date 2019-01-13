@@ -1,6 +1,6 @@
 <!--logs.wxml-->
 <view class="container">
-  <view wx:for="{{teamProjectList}}" wx:key-index='index' wx:key='index' class='li-item' data-id='{{id}}' bindtap='jumpToDetail'>
+  <view wx:for="{{teamProjectList}}" wx:key-index='index' wx:key='index' class='li-item' data-id='{{item.id}}' bindtap='jumpToDetail'>
     <text>{{item.projectName}}</text>
     <text class='iconfont icon-enter'></text>
   </view>

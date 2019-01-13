@@ -9,6 +9,6 @@
     <text class='create-text' bindtap='jumpToCreateMission'>新建</text>
   </view>
   <my-task-list wx:if='{{typeShow}}'></my-task-list>
-  <tm-task-list wx:el></tm-task-list>
+  <tm-task-list wx:if='{{!typeShow}}'></tm-task-list>
  
 </view>

@@ -23,7 +23,7 @@ Component({
       * 跳转到详情页
       */
     jumpToDetail(e) {
-      let id = e.currentTarget.dataset.taskId;
+      let id = e.currentTarget.dataset.taskid;
       wx.navigateTo({
         url: '../attendanceList/attendanceList?taskId=' + id
       })
@@ -36,6 +36,11 @@ Component({
           })
         }
       })
+    }
+  },
+  lifetimes:{
+    attached(){
+      this.searchTmTask();
     }
   }
 })

@@ -25,7 +25,8 @@ Page({
     latitude: 0,
     disable: false,
     mainLeader: [],
-    leaderIndex: 0
+    leaderIndex: 0,
+    showTaskList: false
   },
 
   /**
@@ -226,6 +227,27 @@ Page({
     leader[atr] = e.detail.value;
     this.setData({
       projectData: leader
+    })
+  },
+  showTask(){
+    let isShow = this.data.showTaskList;
+    if (this.data.projectData.taskDOList <= 0){
+      wx.showToast({
+        title: '当前项目没有任务',
+        icon: 'none'
+      })
+    }else{
+      this.setData({
+        showTaskList: !isShow
+      })
+    }
+    
+  },
+  jumpToTaskDetail(e){
+    debugger;
+    let taskId = e.currentTarget.dataset.taskid;
+    wx.navigateTo({
+      url: '../missionDetail/missionDetail?id='+taskId,
     })
   }
 })

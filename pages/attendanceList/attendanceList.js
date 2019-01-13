@@ -68,13 +68,12 @@ Page({
   },
   getAttendanceList(data = {}){
     if(data.taskId){
-      this.getTaskList(data);
-    } else if(data.id) {
-      this.getProjectList(data)
+      this.getTaskList({id: data.taskId});
+    } else if(data.projectId) {
+      this.getProjectList({ id: data.projectId});
     }else{
       this.getCurrentList();
     }
-    
   },
   getTaskList(data){
     T.searchTaskAttend(data).then(res => {
