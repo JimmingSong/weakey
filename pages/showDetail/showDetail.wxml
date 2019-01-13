@@ -9,22 +9,22 @@
       <!-- <icon class='iconfont icon-brush_fill' bindtap='modifyStatus'></icon> -->
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectName'>项目名称:</label>
+      <label for='projectName'>项目名称</label>
       <input class='flex-grow-1 input' value='{{projectData.projectName}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请输入项目名称' name='projectName' id='projectName' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='projectLeader'>主负责人:</label>
+      <label for='projectLeader'>主负责人</label>
       <picker class='flex-grow-1 input picker' value='{{projectData.projectLeader}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请选择负责人' name='projectLeader' id='projectLeader' value='{{projectData.projectLeader}}' range='{{mainLeader}}' range-key='contactName' data-atr='projectLeader' bindchange='chagneLeader'>
         <text>{{mainLeader[projectData.projectLeader].contactName}}</text>
         <icon class='iconfont icon-enter'></icon>
       </picker>
     </view>
     <view class='dis-flex form-view'>
-      <label for='bussiness'>业主姓名:</label>
+      <label for='bussiness'>业主姓名</label>
       <input class='flex-grow-1 input' value='{{projectData.bussinessContact}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='业主联系人姓名' name='bussinessContact' id='bussiness' />
     </view>
     <view class='dis-flex form-view'>
-      <label for='phone'>联系方式:</label>
+      <label for='phone'>联系方式</label>
       <input type='number' class='flex-grow-1 input' value='{{projectData.bussinessPhone}}' placeholder-class='color-fff' disabled='{{disable}}' placeholder='业主联系电话' name='bussinessPhone' id='phone' />
     </view>
     <!-- <view class='dis-flex form-view'>
@@ -35,7 +35,7 @@
       </picker>
     </view> -->
     <view class='dis-flex form-view'>
-      <label for='status'>项目状态:</label>
+      <label for='status'>项目状态</label>
       <picker range='{{projectStatus}}' class='flex-grow-1 input picker' placeholder='请输入项目地址' name='status' id='status' value='{{staIndex}}' range-key='value' data-atr='status' bindchange='chagneLeader'>
         <text>{{projectStatus[projectData.status].value}}</text>
         <icon class='iconfont icon-enter'></icon>
@@ -43,7 +43,14 @@
       <!-- <input class='flex-grow-1 input' value='{{projectData.status}}' disabled='{{disable}}' placeholder-class='color-fff' placeholder='请输入项目地址' name='status' id='status' /> -->
     </view>
     <view class='dis-flex form-view'>
-      <label for='position'>项目位置:</label>
+      <label for='position'>项目位置</label>
+      <view class='position_box flex-grow-1 input'>
+        <input name='projectPosition' disabled='{{disable}}' value='{{projectData.projectPosition}}' placeholder-class='color-fff' placeholder='请选择位置' id='position' bindtap='openMap' class='input' />
+        <icon class='iconfont icon-enter icon_position' bindtap='openMap'></icon>
+      </view>
+    </view>
+    <view class='dis-flex form-view'>
+      <label for='position'>相关人员</label>
       <view class='position_box flex-grow-1 input'>
         <input name='projectPosition' disabled='{{disable}}' value='{{projectData.projectPosition}}' placeholder-class='color-fff' placeholder='请选择位置' id='position' bindtap='openMap' class='input' />
         <icon class='iconfont icon-enter icon_position' bindtap='openMap'></icon>

@@ -20,7 +20,6 @@ Page({
     tpIndex: '1',
     projectStatus:[
       { key: '1', value: '有效' },
-      { key: '0', value: '无效' },
     ],
     staIndex: '0',
     mainLeader: [],

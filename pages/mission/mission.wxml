@@ -5,7 +5,7 @@
     <text class='{{lastTab}}' data-index='1' bindtap='bindPickerChange'>团队任务</text>
   </view>
   <view class='li-item'>
-    <text>任务列表</text>
+    <text>{{message}}</text>
     <text class='create-text' bindtap='jumpToCreateMission'>新建</text>
   </view>
   <my-task-list wx:if='{{typeShow}}'></my-task-list>

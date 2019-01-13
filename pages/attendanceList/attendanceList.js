@@ -7,16 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [
-      {}
-    ]
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAttendanceList({ taskId: options.taskId, employeeId: options.employeeId})
+    console.log({...options});
+    this.getAttendanceList({...options})
   },
 
   /**
@@ -68,25 +67,48 @@ Page({
 
   },
   getAttendanceList(data = {}){
-    T.getAttendace(data).then(res => {
-      if(res.code === 0){
-        let result = res.data.map(item => {
-          if(item.startTime){
-            item.startTime = formatTime('yyyy-MM-dd hh:mm:ss',new Date(item.startTime));
-          }
-          if(item.endTime){
-            item.endTime = formatTime('yyyy-MM-dd hh:mm:ss', new Date(item.endTime))
-          }
-          return item;
-        })
-        this.setData({
-          list: result
-        })
-      }else{
-        wx.showToast({
-          title: res.msg,
-        })
-      }
+    if(data.taskId){
+      this.getTaskList(data);
+    } else if(data.id) {
+      this.getProjectList(data)
+    }else{
+      this.getCurrentList();
+    }
+    
+  },
+  getTaskList(data){
+    T.searchTaskAttend(data).then(res => {
+      this.dealReturnData(res);
     })
+  },
+  getProjectList(data){
+    T.searchAttendacce(data).then(res => {
+      this.dealReturnData(res);
+    })
+  },
+  getCurrentList(){
+    T.getAttendace({}).then(res =>   {
+      this.dealReturnData(res);
+    })
+  },
+  dealReturnData(res){
+    if (res.code === 0) {
+      let result = res.data.map(item => {
+        if (item.startTime) {
+          item.startTime = formatTime('yyyy-MM-dd hh:mm:ss', new Date(item.startTime));
+        }
+        if (item.endTime) {
+          item.endTime = formatTime('yyyy-MM-dd hh:mm:ss', new Date(item.endTime))
+        }
+        return item;
+      })
+      this.setData({
+        list: result
+      })
+    } else {
+      wx.showToast({
+        title: res.msg,
+      })
+    }
   }
 })

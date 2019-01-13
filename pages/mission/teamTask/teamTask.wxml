@@ -1,5 +1,5 @@
 <!--pages/mission/teamTask/teamTask.wxml-->
- <view wx:for="{{missionList}}" wx:key-index='index' wx:key='index' data-id='{{item.id}}' class='li-item' bindtap="jumpToDetail">
+ <view wx:for="{{missionList}}" wx:key-index='index' wx:key='index' data-taskId='{{id}}' class='li-item' bindtap="jumpToDetail">
     <text>{{item.taskName}}</text>
     <icon class='iconfont icon-enter'></icon>
   </view>

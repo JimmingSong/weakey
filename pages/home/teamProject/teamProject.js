@@ -10,7 +10,7 @@ Component({
     jumpToDetail(e){
       let id = e.currentTarget.dataset.id
       wx.navigateTo({
-        url: '../showDetail/showDetail?modify=1&id=' + id,
+        url: '../attendanceList/attendanceList?projectId='+id
       })
     },
     searchProjectList() {

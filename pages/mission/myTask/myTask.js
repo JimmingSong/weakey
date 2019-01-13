@@ -30,7 +30,6 @@ Component({
     },
     searchMyTask(){
       T.searchMission({}).then(res => {
-        console.log(res);
         if (res.code === 0) {
           this.setData({
             missionList: res.data

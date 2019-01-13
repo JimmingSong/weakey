@@ -49,7 +49,7 @@ function updateProject(data){
  * 查询团队任务
  */
 function searchTeamProject(data){
-  return ajax('/project/findTeamProject',data)
+  return ajax('/project/findTeamProjects',data,'get')
 }
 /**
  * 任务管理
@@ -73,6 +73,12 @@ function sendMessage(data){
 
 function searchTmTask(data){
   return ajax('/task/findTeamTask',data)
+}
+/**
+ * 查询当前人在团队项目中的打卡记录
+ */
+function searchAttendacce(data){
+  return ajax('/project/findAttendInProject', data);
 }
 
 /**
@@ -116,6 +122,12 @@ function addTaskPerson(data){
 function delTaskPerson(data){
   return ajax('/taskEmployee/del',data);
 }
+/**
+ * 查询当前人在团队任务中的打卡记录
+ */
+function searchTaskAttend(data){
+  return ajax('/task/findTaskEmployeeAttend',data)
+}
 
 /**
  * 打卡信息
@@ -154,5 +166,7 @@ module.exports = {
   delTaskPerson,
   judgeAttendance,
   getAttendace,
-  operatorAttendace
+  operatorAttendace,
+  searchAttendacce,
+  searchTaskAttend,
   }

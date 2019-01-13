@@ -23,9 +23,9 @@ Component({
       * 跳转到详情页
       */
     jumpToDetail(e) {
-      let id = e.currentTarget.dataset.id;
+      let id = e.currentTarget.dataset.taskId;
       wx.navigateTo({
-        url: '../missionDetail/missionDetail?modify=1&&id=' + id
+        url: '../attendanceList/attendanceList?taskId=' + id
       })
     },
     searchTmTask(){

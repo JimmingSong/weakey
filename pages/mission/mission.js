@@ -8,6 +8,7 @@ Page({
   data: {
     missionList:[],
     typeShow: true,
+    message: '我的任务',
     firstTab: 'menu-tab first-tab active-tab',
     lastTab: 'menu-tab last-tab'
   },
@@ -89,7 +90,7 @@ Page({
     var type = this.data.typeShow;
     if (dataIndex === '0') {
       this.setData({
-        projectType: '我的任务',
+        message: '我的任务',
         typeShow: true,
         index: dataIndex,
         firstTab: 'menu-tab first-tab active-tab',
@@ -97,7 +98,7 @@ Page({
       })
     } else {
       this.setData({
-        projectType: '团队任务',
+        message: '团队任务',
         typeShow: false,
         index: dataIndex,
         firstTab: 'menu-tab first-tab',
