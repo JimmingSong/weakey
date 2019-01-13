@@ -4,7 +4,7 @@
     <input bindinput='search'></input>
     <icon class='iconfont icon-addition' bindtap='addContact'></icon>
   </view>
-  <view class='contact-msg' data-id='{{item.id}}' wx:for='{{contactList}}' wx:key-index='index' wx:key='index' bindtap='showDetail' bindlongtap='delTaskPerson'>
+  <view class='contact-msg' data-id='{{item.id}}' wx:for='{{contactList}}' wx:key-index='index' wx:key='index' data-employeeId='{{item.employeeId}}' bindtap='showDetail' bindlongtap='delTaskPerson'>
     <text class='contact-name'>{{item.employeeName}}</text>
     <text>{{item.contactPhone}}</text>
   </view>

@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAttendanceList()
+    this.getAttendanceList({ taskId: options.taskId, employeeId: options.employeeId})
   },
 
   /**
@@ -67,8 +67,8 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getAttendanceList(){
-    T.getAttendace({}).then(res => {
+  getAttendanceList(data = {}){
+    T.getAttendace(data).then(res => {
       if(res.code === 0){
         let result = res.data.map(item => {
           if(item.startTime){

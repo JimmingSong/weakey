@@ -1,6 +1,7 @@
 <!--pages/attendanceList/attendanceList.wxml-->
 <view class='container'>
-  <view wx:for='{{list}}' wx:key-index='index' wx:key='index' class='row-box'>
+  <view class='nothing' wx:if='{{list.length === 0}}'>暂无打卡信息</view>
+  <view wx:el wx:for='{{list}}' wx:key-index='index' wx:key='index' class='row-box'>
     <view class='task-name'>{{item.taskName}}</view>
     <view class='detail-box'>
       <view><text>上班时间：</text>{{item.startTime}}</view>

@@ -4,15 +4,7 @@ import T from '../../../utils/request.js';
 
 Component({
   data:{
-    teamProjectList:[
-      { txt: '团队项目1' },
-      { txt: '团队项目2' },
-      { txt: '团队项目3' },
-      { txt: '团队项目4' },
-      { txt: '团队项目5' },
-      { txt: '团队项目6' },
-      { txt: '团队项目7' }
-    ]
+    teamProjectList:[]
   },
   methods:{
     jumpToDetail(e){

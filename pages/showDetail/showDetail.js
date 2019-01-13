@@ -17,8 +17,8 @@ Page({
       position:''
     },
     projectStatus: [
-      { key: '1', value: '有效' },
       { key: '0', value: '无效' },
+      { key: '1', value: '有效' },
     ],
     address: '',
     longitude: 0,
@@ -139,7 +139,7 @@ Page({
       return;
     }
     let formData = val.detail.value;
-    val.projectPosition = val.projectPosition + '-' + this.data.longitude + '-' + this.data.latitude;
+    val.projectPosition = val.projectPosition + ';' + this.data.longitude + ';' + this.data.latitude;
     wx.showLoading({
       title: '提交中...',
     });

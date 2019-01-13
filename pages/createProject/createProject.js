@@ -22,9 +22,9 @@ Page({
       { key: '1', value: '有效' },
       { key: '0', value: '无效' },
     ],
-    staIndex: '1',
+    staIndex: '0',
     mainLeader: [],
-    leaderIndex: '1'
+    leaderIndex: '0'
   },
 
   /**
@@ -152,7 +152,7 @@ Page({
     } else if (reqData.status === '') {
 
     }else{
-      reqData.projectPosition = reqData.projectPosition+'-'+this.data.longitude+'-'+this.data.latitude;
+      reqData.projectPosition = reqData.projectPosition+';'+this.data.longitude+';'+this.data.latitude;
       let sta = reqData.status;
       let leader = reqData.projectLeader;
       reqData.projectLeader = this.data.mainLeader[leader].contactId;

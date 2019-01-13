@@ -103,5 +103,10 @@ Page({
         }
       }
     })
+  },
+  showDetail(e){
+    wx.navigateTo({
+      url: '../attendanceList/attendanceList?taskId=' + this.data.taskId + '&employeeId=' + e.target.dataset.employeeid,
+    })
   }
 })

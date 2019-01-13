@@ -133,7 +133,7 @@ Page({
           success: (res) => {
             if (res.status === 0) {
               let formData = this.data.formData;
-              formData.taskPosition = res.result.address + '-' + pos.longitude + '-' + pos.latitude;
+              formData.taskPosition = res.result.address + ';' + pos.longitude + ';' + pos.latitude;
               this.setData({
                 formData
               })

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     missionList:[],
+    typeShow: true,
     firstTab: 'menu-tab first-tab active-tab',
     lastTab: 'menu-tab last-tab'
   },
@@ -29,17 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let data = {
-      // "creator": "string",
-    }
-    T.searchMission(data).then(res => {
-      console.log(res);
-      if(res.code === 0){
-        this.setData({
-          missionList:res.data
-        })
-      }
-    })
+    
   },
 
   /**

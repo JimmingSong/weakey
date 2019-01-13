@@ -76,3 +76,46 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.self-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.568);
+}
+.self-child{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70vw;
+  height: 40vh;
+  padding: 20px;
+  background: #fff;
+  transform: translate(-50%,-50%);
+  border-radius: 3px;
+}
+.self-child form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.self-title{
+  font-size: 1.5rem;
+  text-align: center;
+}
+.text-area{
+  border: 1px solid #eee;
+  height: 100px;
+  width: 100%;
+}
+.self-btn{
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-around;
+}
+.self-btn button{
+  flex-grow: 1;
+}

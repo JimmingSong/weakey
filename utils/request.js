@@ -45,9 +45,11 @@ function deleteProject(data){
 function updateProject(data){
   return ajax('/project/update', data);
 }
-
+/**
+ * 查询团队任务
+ */
 function searchTeamProject(data){
-  return ajax('/task/findTeamTask',data)
+  return ajax('/project/findTeamProject',data)
 }
 /**
  * 任务管理
@@ -67,6 +69,10 @@ function searchMission(data) {
 
 function sendMessage(data){
   return ajax('/user/sendMessage',data);
+}
+
+function searchTmTask(data){
+  return ajax('/task/findTeamTask',data)
 }
 
 /**

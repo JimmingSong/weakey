@@ -21,6 +21,7 @@ Page({
     cardText: '不允许打卡',
     taskId: '',
     taskName: '',
+    commit: false,
   },
 
   /**
@@ -40,7 +41,9 @@ Page({
           if(res.code === 0){
             this.setData({
               taskId: res.data.taskId,
-              taskName: res.data.taskName
+              taskName: res.data.taskName,
+              projectId: res.data.projectId,
+              projectName: res.data.projectName
             });
             if(res.data.flag){
               this.setData({
@@ -142,27 +145,43 @@ Page({
   onShareAppMessage: function () {
 
   },
+  showSelfModal(){
+    if(this.data.isCan){
+      this.setData({
+        commit: true
+      })
+    }
+    
+  },
   /**
    * 打卡
    */
-  punchCard(){
-    if(this.data.isCan){
-      let data = {
-        taskId: this.data.taskId,
-        taskName: this.data.taskName
-      }
-      T.operatorAttendace(data).then(res => {
-        if (res.code === 0) {
-          wx.showToast({
-            title: '打卡成功',
-          })
-          // if(res.data.endTime){
-          //   this.setData({
-          //     isCan: false
-          //   })
-          // }
-        }
-      })
+  punchCard(e){
+    let data = {
+      taskId: this.data.taskId,
+      taskName: this.data.taskName,
+      projectId: this.data.projectId,
+      projectName: this.data.projectName,
+      common: e.detail.value.common
     }
+    T.operatorAttendace(data).then(res => {
+      if (res.code === 0) {
+        this.setData({
+          commit: false
+        })
+        wx.showToast({
+          title: '打卡成功',
+        })
+      }else{
+        wx.showModal({
+          title: res.data.msg,
+        })
+      }
+    })
+  },
+  cancelCommit(){
+    this.setData({
+      commit: false
+    })
   }
 })

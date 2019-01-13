@@ -1,4 +1,12 @@
 /* pages/attendanceList/attendanceList.wxss */
+.nothing{
+  width: 100vw;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 3rem;
+  color: rgba(212, 212, 212, 0.589);
+}
 .row-box{
   background: #fff;
   padding-bottom: 15px;

@@ -1,0 +1,2 @@
+/* pages/mission/teamTask/teamTask.wxss */
+@import '../mission.wxss';
