@@ -5,7 +5,7 @@
     <view class='task-name'>{{item.taskName}}</view>
     <view class='detail-box'>
       <view><text>上班时间：</text>{{item.startTime}}</view>
-      <view><text>下班时间：</text>{{item.endTime}}</view>
+      <view><text>下班时间：</text>{{item.endTime?item.endTime:''}}</view>
       <view><text>工作描述：</text>{{item.commentz}}</view>
     </view>
   </view>
