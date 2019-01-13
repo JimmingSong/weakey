@@ -88,9 +88,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 70vw;
-  height: 40vh;
-  padding: 20px;
+  width: 225px;
+  height: 203px;
   background: #fff;
   transform: translate(-50%,-50%);
   border-radius: 3px;
@@ -100,21 +99,25 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .self-title{
-  font-size: 1.5rem;
-  text-align: center;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+  color: rgb(124, 122, 122)
 }
 .text-area{
+  margin: 10px 20px;
+}
+.text-area textarea{
   border: 1px solid #eee;
   height: 100px;
   width: 100%;
 }
 .self-btn{
   display: flex;
-  padding-top: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .self-btn button{
   flex-grow: 1;

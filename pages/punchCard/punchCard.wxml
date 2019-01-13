@@ -37,8 +37,8 @@
   <view class='self-child'>
     <form bindsubmit='punchCard'>
       <view class='self-title'>请输入任务描述</view>
-      <view>
-        <textarea name='common' class='text-area'></textarea>
+      <view class='text-area'>
+        <textarea name='common'></textarea>
       </view>
       <view class='self-btn'>
         <button bindtap='cancelCommit'>取消</button>
