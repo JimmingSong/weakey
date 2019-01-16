@@ -108,27 +108,38 @@ Page({
    * 获取定位信息方法
    */
   getPositionMsg: function () {
-    wx.getLocation({
-      type: 'wgs84',
-      success: (res) => {
-        console.log(this.data.disable);
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: res.latitude,
-            longitude: res.longitude
-          },
-          coord_type: 1,
-          success: (res) => {
-            if (res.status === 0) {
-              console.log(this.data.disable);
-              this.setData({
-                projectPosition: res.result.address,
-                latitude: res.latitude,
-                longitude: res.longitude
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success: () => {
+              wx.getLocation({
+                type: 'wgs84',
+                success: (res) => {
+                  console.log(this.data.disable);
+                  qqmapsdk.reverseGeocoder({
+                    location: {
+                      latitude: res.latitude,
+                      longitude: res.longitude
+                    },
+                    coord_type: 1,
+                    success: (res) => {
+                      if (res.status === 0) {
+                        console.log(this.data.disable);
+                        this.setData({
+                          projectPosition: res.result.address,
+                          latitude: res.latitude,
+                          longitude: res.longitude
+                        })
+                      }
+                    }
+                  });
+                }
               })
             }
-          }
-        });
+          })
+        }
       }
     })
   },

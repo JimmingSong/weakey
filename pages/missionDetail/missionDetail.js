@@ -121,25 +121,36 @@ Page({
    * 获取定位信息方法
    */
   getPositionMsg: function () {
-    wx.getLocation({
-      type: 'wgs84',
-      success: (pos) => {
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: pos.latitude,
-            longitude: pos.longitude
-          },
-          coord_type: 1,
-          success: (res) => {
-            if (res.status === 0) {
-              let formData = this.data.formData;
-              formData.taskPosition = res.result.address + ';' + pos.longitude + ';' + pos.latitude;
-              this.setData({
-                formData
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              wx.getLocation({
+                type: 'wgs84',
+                success: (pos) => {
+                  qqmapsdk.reverseGeocoder({
+                    location: {
+                      latitude: pos.latitude,
+                      longitude: pos.longitude
+                    },
+                    coord_type: 1,
+                    success: (res) => {
+                      if (res.status === 0) {
+                        let formData = this.data.formData;
+                        formData.taskPosition = res.result.address + ';' + pos.longitude + ';' + pos.latitude;
+                        this.setData({
+                          formData
+                        })
+                      }
+                    }
+                  });
+                }
               })
             }
-          }
-        });
+          })
+        }
       }
     })
   },

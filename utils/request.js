@@ -3,7 +3,7 @@ function ajax(url, data, type = 'POST', head = {}){
   if(!head.cookie){
     head.cookie = `JSESSIONID=${sessionId};`
   };
-  let http = 'http://cai.natapp1.cc';
+  let http = 'https://www.royan-info.com:8089/';
   return new Promise((resolve,reject)=>{
     wx.request({
       url: http+url,

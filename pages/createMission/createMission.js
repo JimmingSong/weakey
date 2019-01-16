@@ -90,15 +90,27 @@ Page({
    * 打开地图获取定位信息
    */
   openMap() {
-    wx.chooseLocation({
-      success: (res) => {
-        this.setData({
-          address: res.address + ',' + res.name,
-          longitude: res.longitude,
-          latitude: res.latitude
-        })
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              wx.chooseLocation({
+                success: (res) => {
+                  this.setData({
+                    address: res.address + ',' + res.name,
+                    longitude: res.longitude,
+                    latitude: res.latitude
+                  })
+                }
+              })
+            }
+          })
+        }
       }
     })
+    
   },
   formSubmit(val){
     let data = val.detail.value;
