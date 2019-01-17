@@ -1,6 +1,5 @@
 // pages/createProject/createProject.js
-// const QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
-// var qqmapsdk;
+
 import T from '../../utils/request.js';
 const app = getApp();
 Page({
@@ -37,9 +36,6 @@ Page({
       })
     };
     this.getMainLeader();
-    // qqmapsdk = new QQMapWX({
-    //   key: 'RRPBZ-2DOK4-67JUE-XVJNV-K4CGE-PDF6U'
-    // })
   },
 
   /**
@@ -94,6 +90,22 @@ Page({
    * 打开地图获取定位信息
    */
   openMap() {
+    wx.getSetting({
+      success: (res) => {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              this.chooseLoca()
+            }
+          })
+        } else {
+          this.chooseLoca();
+        }
+      }
+    })
+  },
+  chooseLoca(){
     wx.chooseLocation({
       success: (res) => {
         this.setData({
@@ -103,44 +115,6 @@ Page({
         })
       }
     })
-  },
-  /**
-   * 获取定位信息方法
-   */
-  getPositionMsg: function () {
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userLocation']) {
-          wx.authorize({
-            scope: 'scope.userLocation',
-            success() {
-              wx.getLocation({
-                type: 'wgs84',
-                success: (res) => {
-                  qqmapsdk.reverseGeocoder({
-                    location: {
-                      latitude: res.latitude,
-                      longitude: res.longitude
-                    },
-                    coord_type: 1,
-                    success: (res) => {
-                      if (res.status === 0) {
-                        this.setData({
-                          latitude: res.latitude,
-                          longitude: res.longitude,
-                          address: res.result.address
-                        })
-                      }
-                    }
-                  });
-                }
-              })
-            }
-          })
-        }
-      }
-    })
-    
   },
   /**
    * 表单提交

@@ -1,5 +1,7 @@
 // pages/showDetail/showDetail.js
 import T from '../../utils/request.js';
+const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
 
   /**
@@ -33,6 +35,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    qqmapsdk = new QQMapWX({
+      key: 'RRPBZ-2DOK4-67JUE-XVJNV-K4CGE-PDF6U'
+    });
     let projectId = options.id;
     if (options.modify === '1') {
       this.setData({
@@ -94,52 +99,30 @@ Page({
  * 打开地图获取定位信息
  */
   openMap() {
-    wx.chooseLocation({
-      success: (res) => {
-        console.log(this.data.disable);
-        let data = Object.assign({}, this.data.projectData, { projectPosition:res.address,position:res.address,longitude:res.longitude,latitude:res.latitude});
-        this.setData({
-          projectData:data
-        })
-      }
-    })
-  },
-  /**
-   * 获取定位信息方法
-   */
-  getPositionMsg: function () {
     wx.getSetting({
-      success(res) {
+      success: (res) => {
         if (!res.authSetting['scope.userLocation']) {
           wx.authorize({
             scope: 'scope.userLocation',
             success: () => {
-              wx.getLocation({
-                type: 'wgs84',
-                success: (res) => {
-                  console.log(this.data.disable);
-                  qqmapsdk.reverseGeocoder({
-                    location: {
-                      latitude: res.latitude,
-                      longitude: res.longitude
-                    },
-                    coord_type: 1,
-                    success: (res) => {
-                      if (res.status === 0) {
-                        console.log(this.data.disable);
-                        this.setData({
-                          projectPosition: res.result.address,
-                          latitude: res.latitude,
-                          longitude: res.longitude
-                        })
-                      }
-                    }
-                  });
-                }
-              })
+              this.chooseLoca();
             }
           })
+        }else{
+          this.chooseLoca();
         }
+      }
+    })
+    
+  },
+  chooseLoca(){
+    wx.chooseLocation({
+      success: (res) => {
+        console.log(this.data.disable);
+        let data = Object.assign({}, this.data.projectData, { projectPosition: res.address, position: res.address, longitude: res.longitude, latitude: res.latitude });
+        this.setData({
+          projectData: data
+        })
       }
     })
   },

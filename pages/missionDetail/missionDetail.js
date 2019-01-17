@@ -1,4 +1,6 @@
 // pages/missionDetail/missionDetail.js
+const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+var qqmapsdk;
 import T from '../../utils/request.js';
 Page({
 
@@ -42,6 +44,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    qqmapsdk = new QQMapWX({
+      key: 'RRPBZ-2DOK4-67JUE-XVJNV-K4CGE-PDF6U'
+    });
     this.setData({
       taskId:options.id
     })
@@ -122,35 +127,40 @@ Page({
    */
   getPositionMsg: function () {
     wx.getSetting({
-      success(res) {
+      success:(res) => {
         if (!res.authSetting['scope.userLocation']) {
           wx.authorize({
             scope: 'scope.userLocation',
             success() {
-              wx.getLocation({
-                type: 'wgs84',
-                success: (pos) => {
-                  qqmapsdk.reverseGeocoder({
-                    location: {
-                      latitude: pos.latitude,
-                      longitude: pos.longitude
-                    },
-                    coord_type: 1,
-                    success: (res) => {
-                      if (res.status === 0) {
-                        let formData = this.data.formData;
-                        formData.taskPosition = res.result.address + ';' + pos.longitude + ';' + pos.latitude;
-                        this.setData({
-                          formData
-                        })
-                      }
-                    }
-                  });
-                }
-              })
+              this.getLoca()
             }
           })
+        }else{
+          this.getLoca();
         }
+      }
+    })
+  },
+  getLoca(){
+    wx.getLocation({
+      type: 'wgs84',
+      success: (pos) => {
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: pos.latitude,
+            longitude: pos.longitude
+          },
+          coord_type: 1,
+          success: (res) => {
+            if (res.status === 0) {
+              let formData = this.data.formData;
+              formData.taskPosition = res.result.address + ';' + pos.longitude + ';' + pos.latitude;
+              this.setData({
+                formData
+              })
+            }
+          }
+        });
       }
     })
   },

@@ -90,26 +90,30 @@ Page({
    */
   openMap() {
     wx.getSetting({
-      success(res) {
+      success: (res) => {
         if (!res.authSetting['scope.userLocation']) {
           wx.authorize({
             scope: 'scope.userLocation',
             success() {
-              wx.chooseLocation({
-                success: (res) => {
-                  this.setData({
-                    address: res.address + ',' + res.name,
-                    longitude: res.longitude,
-                    latitude: res.latitude
-                  })
-                }
-              })
+              this.chooseLoca()
             }
           })
+        }else{
+          this.chooseLoca();
         }
       }
     })
-    
+  },
+  chooseLoca(){
+    wx.chooseLocation({
+      success: (res) => {
+        this.setData({
+          address: res.address + ',' + res.name,
+          longitude: res.longitude,
+          latitude: res.latitude
+        })
+      }
+    })
   },
   formSubmit(val){
     let data = val.detail.value;
